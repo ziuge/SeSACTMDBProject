@@ -27,7 +27,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="SkB-Ma-Zd5">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchCollectionViewCell" id="SkB-Ma-Zd5" customClass="SearchCollectionViewCell" customModule="SeSACTMDBProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="oqx-8Y-Vgi">
@@ -47,6 +47,9 @@
                             <constraint firstItem="jgM-SQ-neT" firstAttribute="top" secondItem="uG0-Ur-ayb" secondAttribute="top" id="w8x-v5-dDc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="jgM-SQ-neT" id="Ox6-T9-rKQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p3U-aV-RcF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

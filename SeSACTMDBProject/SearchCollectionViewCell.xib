@@ -57,7 +57,7 @@
                                     <constraint firstAttribute="height" constant="1" id="7sK-dk-wom"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5t-9G-7KH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자세히 보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5t-9G-7KH">
                                 <rect key="frame" x="16" y="251" width="284" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
@@ -99,6 +99,14 @@
                 <constraint firstAttribute="trailing" secondItem="8wg-qR-x7X" secondAttribute="trailing" constant="20" id="tdM-zI-vRk"/>
             </constraints>
             <size key="customSize" width="356" height="375"/>
+            <connections>
+                <outlet property="actorLabel" destination="zdW-bk-mAP" id="rhH-Zi-JTV"/>
+                <outlet property="cellView" destination="8wg-qR-x7X" id="XZO-F1-lz2"/>
+                <outlet property="dateLabel" destination="2He-2N-tqn" id="VnP-YZ-e1Z"/>
+                <outlet property="genreLabel" destination="zhL-OI-d0k" id="tMw-ka-eM9"/>
+                <outlet property="imageView" destination="7Mh-x5-eN8" id="vA4-Z7-wKg"/>
+                <outlet property="titleLabel" destination="xvw-vk-iZc" id="gZc-Vf-dPS"/>
+            </connections>
             <point key="canvasLocation" x="324.63768115942031" y="133.59375"/>
         </collectionViewCell>
     </objects>
