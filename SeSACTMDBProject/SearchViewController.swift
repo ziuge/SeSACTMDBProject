@@ -20,6 +20,7 @@ class SearchViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.register(UINib(nibName: "SearchCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SearchCollectionViewCell")
         
         
         let layout = UICollectionViewFlowLayout()
@@ -36,7 +37,7 @@ class SearchViewController: UIViewController {
         
     }
     
-    var list: [String] = []
+    var list: [[String: String]] = []
     
     var startPage = 1
     var totalCount = 0
@@ -53,7 +54,10 @@ class SearchViewController: UIViewController {
                 self.totalCount = json["total_results"].intValue
                 
                 for item in json["results"].arrayValue {
-                    self.list.append(item["poster_path"].stringValue)
+                    self.list.append(["poster": item["poster_path"].stringValue,
+                                     "release": item["release_date"].stringValue,
+                                      "title": item["title"].stringValue,
+                                     "overview": item["overview"].stringValue])
                 }
                 
                 self.collectionView.reloadData()
@@ -66,23 +70,6 @@ class SearchViewController: UIViewController {
     
 }
 
-// MARK: Pagenation
-extension SearchViewController: UICollectionViewDataSourcePrefetching {
-    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        for indexPath in indexPaths {
-            if list.count - 1 == indexPath.item && list.count < totalCount {
-                startPage += 30
-                fetch()
-            }
-        }
-        print("===\(indexPaths)")
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
-        print("===취소 \(indexPaths)")
-    }
-}
-
 // MARK: CollectionView
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -92,10 +79,15 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
         
-        let url = URL(string: EndPoint.tmdbURL + list[indexPath.item])
-        cell.imageView.kf.setImage(with: url)
+        let url = URL(string: "https://api.themoviedb.org/3/trending/movie/week?api_key=\(APIKey.TMDB_SECRET)" + list[indexPath.item]["poster"]!)
+        cell.imageView.kf.setImage(with: url!)
+        cell.titleLabel.text = list[indexPath.item]["title"]
+        cell.dateLabel.text = list[indexPath.item]["release"]
+//        cell.genreLabel.text = list[]
+//        cell.actorLabel.text = list[indexPath.item][""]
         
-        cell.backgroundColor = .lightGray
+        
+//        cell.backgroundColor = .lightGray
         
         print("list", list)
         
