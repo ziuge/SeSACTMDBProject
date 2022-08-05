@@ -34,7 +34,7 @@ class SearchViewController: UIViewController {
         collectionView.collectionViewLayout = layout
         
         fetch()
-        
+//        fetchId(id: <#T##String#>)
     }
     
     var list: [[String: String]] = []
@@ -43,25 +43,24 @@ class SearchViewController: UIViewController {
     var totalCount = 0
     
     func fetch() {
-//        let url = EndPoint.tmdbURL + "/movie/week?api_key=" + APIKey.TMDB_SECRET
-        let url = "https://api.themoviedb.org/3/trending/movie/week?api_key=\(APIKey.TMDB_SECRET)"
+        SearchAPIManager.shared.fetchData() { totalCount, list in
+            self.totalCount = totalCount
+            self.list.append(contentsOf: list)
+            self.collectionView.reloadData()
+        }
+    }
+    
+    // id -> genre 받아오기
+    var genreList: [[String: String]] = []
+    
+    func fetchId(id: String) {
+        let url = "https://api.themoviedb.org/3/movie/\(id)?api_key=\(APIKey.TMDB_SECRET)&language=en-US"
         AF.request(url, method: .get).validate().responseData { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
                 print( "JSON: \(json)")
-                
-                self.totalCount = json["total_results"].intValue
-                
-                for item in json["results"].arrayValue {
-                    self.list.append(["poster": item["poster_path"].stringValue,
-                                     "release": item["release_date"].stringValue,
-                                      "title": item["title"].stringValue,
-                                     "overview": item["overview"].stringValue])
-                }
-                
-                self.collectionView.reloadData()
-                
+
             case .failure(let error):
                 print(error)
             }
@@ -69,6 +68,7 @@ class SearchViewController: UIViewController {
     }
     
 }
+
 
 // MARK: CollectionView
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -79,17 +79,13 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
         
-        let url = URL(string: "https://api.themoviedb.org/3/trending/movie/week?api_key=\(APIKey.TMDB_SECRET)" + list[indexPath.item]["poster"]!)
+        let url = URL(string: EndPoint.tmdbPosterURL + list[indexPath.item]["poster"]!)
         cell.imageView.kf.setImage(with: url!)
         cell.titleLabel.text = list[indexPath.item]["title"]
         cell.dateLabel.text = list[indexPath.item]["release"]
-//        cell.genreLabel.text = list[]
-//        cell.actorLabel.text = list[indexPath.item][""]
+        cell.actorLabel.text = list[indexPath.item]["overview"]
         
-        
-//        cell.backgroundColor = .lightGray
-        
-        print("list", list)
+//        print("list", list)
         
         return cell
     }

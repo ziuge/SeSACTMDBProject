@@ -21,6 +21,7 @@
 		DE3AB249289C0374009396B3 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = DE3AB248289C0374009396B3 /* SwiftyJSON */; };
 		DE3AB24C289C03B2009396B3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DE3AB24B289C03B2009396B3 /* Alamofire */; };
 		DE3AB24F289C0F66009396B3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DE3AB24E289C0F66009396B3 /* Kingfisher */; };
+		DE8A33E9289CFC400062D5A7 /* SearchAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8A33E8289CFC400062D5A7 /* SearchAPIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		DE0C36D52899FA270041D6D1 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		DE3AB243289BFBEC009396B3 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE3AB244289BFBEC009396B3 /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
+		DE8A33E8289CFC400062D5A7 /* SearchAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		DE0C36BA2899F6BD0041D6D1 /* SeSACTMDBProject */ = {
 			isa = PBXGroup;
 			children = (
+				DE8A33E7289CFC2E0062D5A7 /* APIManager */,
 				DE0C36D72899FA8D0041D6D1 /* Key */,
 				DE0C36DA2899FAB00041D6D1 /* Resource */,
 				DE0C36D52899FA270041D6D1 /* Constant.swift */,
@@ -82,9 +85,7 @@
 				DE0C36C42899F6C00041D6D1 /* Assets.xcassets */,
 				DE0C36C62899F6C00041D6D1 /* LaunchScreen.storyboard */,
 				DE0C36C92899F6C00041D6D1 /* Info.plist */,
-				DE0C36D12899F86F0041D6D1 /* SearchViewController.swift */,
-				DE3AB243289BFBEC009396B3 /* SearchCollectionViewCell.swift */,
-				DE3AB244289BFBEC009396B3 /* SearchCollectionViewCell.xib */,
+				DE8A33E6289CF72D0062D5A7 /* Search */,
 			);
 			path = SeSACTMDBProject;
 			sourceTree = "<group>";
@@ -102,6 +103,24 @@
 			children = (
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		DE8A33E6289CF72D0062D5A7 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				DE0C36D12899F86F0041D6D1 /* SearchViewController.swift */,
+				DE3AB243289BFBEC009396B3 /* SearchCollectionViewCell.swift */,
+				DE3AB244289BFBEC009396B3 /* SearchCollectionViewCell.xib */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		DE8A33E7289CFC2E0062D5A7 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				DE8A33E8289CFC400062D5A7 /* SearchAPIManager.swift */,
+			);
+			path = APIManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE8A33E9289CFC400062D5A7 /* SearchAPIManager.swift in Sources */,
 				DE0C36BC2899F6BD0041D6D1 /* AppDelegate.swift in Sources */,
 				DE0C36D22899F86F0041D6D1 /* SearchViewController.swift in Sources */,
 				DE0C36BE2899F6BD0041D6D1 /* SceneDelegate.swift in Sources */,
