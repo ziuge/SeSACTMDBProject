@@ -17,8 +17,8 @@ class SearchAPIManager {
     
     typealias completionHandler = (Int, [[String: String]]) -> Void
     
-    func fetchData(completionHandler: @escaping completionHandler) {
-        let url = "https://api.themoviedb.org/3/trending/movie/week?api_key=\(APIKey.TMDB_SECRET)"
+    func fetchData(startPage: Int, completionHandler: @escaping completionHandler) {
+        let url = "https://api.themoviedb.org/3/trending/movie/week?api_key=\(APIKey.TMDB_SECRET)&page=\(startPage)"
         AF.request(url, method: .get).validate().responseData { response in
             switch response.result {
             case .success(let value):
@@ -38,8 +38,6 @@ class SearchAPIManager {
                                  "rate": "\(item["vote_average"].doubleValue)"])
                 }
                 
-                
-                
                 completionHandler(totalCount, list)
                 
             case .failure(let error):
@@ -52,9 +50,12 @@ class SearchAPIManager {
     func changeDateFormat(date: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
+        
         let date = dateFormatter.date(from: date)
         dateFormatter.dateFormat = "MM/dd/yyyy"
+        
         let resultString = dateFormatter.string(from: date!)
+        
         return resultString
     }
 

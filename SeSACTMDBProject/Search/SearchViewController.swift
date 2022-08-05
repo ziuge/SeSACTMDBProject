@@ -21,6 +21,7 @@ class SearchViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "SearchCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SearchCollectionViewCell")
+        collectionView.prefetchDataSource = self
         
         
         let layout = UICollectionViewFlowLayout()
@@ -43,7 +44,7 @@ class SearchViewController: UIViewController {
     var totalCount = 0
     
     func fetch() {
-        SearchAPIManager.shared.fetchData() { totalCount, list in
+        SearchAPIManager.shared.fetchData(startPage: startPage) { totalCount, list in
             self.totalCount = totalCount
             self.list.append(contentsOf: list)
             self.collectionView.reloadData()
@@ -67,6 +68,23 @@ class SearchViewController: UIViewController {
         }
     }
     
+}
+
+// MARK: Pagenation
+extension SearchViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            if list.count - 1 == indexPath.item && list.count < totalCount {
+                startPage += 1
+                fetch()
+            }
+        }
+        print("===\(indexPaths)")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+        print("===취소 \(indexPaths)")
+    }
 }
 
 
