@@ -23,7 +23,7 @@ class MovieAPIManager {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print( "JSON: \(json)")
+//                print( "JSON: \(json)")
                 
 //                var list: [[String: String]] = []
 //                list.append(json.arrayValue)

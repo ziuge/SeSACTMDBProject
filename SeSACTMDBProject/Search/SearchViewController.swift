@@ -37,36 +37,21 @@ class SearchViewController: UIViewController {
         fetch()
     }
     
-    var list: [[String: String]] = []
+    var list: [[String: Any]] = []
     
     var startPage = 1
     var totalCount = 0
     
-    // id -> genre 받아오기
-    var movieList: [[String: String]] = []
-    
-//    func fetchId(id: String) {
-//        let url = "https://api.themoviedb.org/3/movie/\(id)?api_key=\(APIKey.TMDB_SECRET)&language=en-US"
-//        AF.request(url, method: .get).validate().responseData { response in
-//            switch response.result {
-//            case .success(let value):
-//                let json = JSON(value)
-////                print( "JSON: \(json)")
-//
-//                self.movieList.append(["id": json["id"].stringValue,
-//                                      "genres": json["genres"][0]["name"].stringValue])
-//                print("append")
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-//    }
+    var genreList: [Int: String] = [:]
     
     func fetch() {
         SearchAPIManager.shared.fetchData(startPage: startPage) { totalCount, list in
             self.totalCount = totalCount
             self.list.append(contentsOf: list)
-
+            self.collectionView.reloadData()
+        }
+        GenreAPIManager.shared.fetchData { list in
+            self.genreList = list
             self.collectionView.reloadData()
         }
     }
@@ -96,12 +81,15 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
         
-        let url = URL(string: EndPoint.tmdbPosterURL + list[indexPath.item]["poster"]!)
+        let url = URL(string: EndPoint.tmdbPosterURL + "\(list[indexPath.item]["poster"]!)")
         cell.imageView.kf.setImage(with: url!)
-        cell.titleLabel.text = list[indexPath.item]["title"]
-        cell.dateLabel.text = list[indexPath.item]["release"]
-        cell.actorLabel.text = list[indexPath.item]["overview"]
-//        cell.genreLabel.text = movieList[indexPath.item]["genres"]
+        cell.titleLabel.text = list[indexPath.item]["title"] as! String
+        cell.dateLabel.text = list[indexPath.item]["release"] as! String
+        cell.actorLabel.text = list[indexPath.item]["overview"] as! String
+        print("=======genre",list[indexPath.item]["genre"] as! Int)
+        let genre = list[indexPath.item]["genre"] as! Int
+        cell.genreLabel.text = genreList[genre]
+        
         
 //        print("list", list)
         
@@ -115,9 +103,9 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overFullScreen
 //        vc.movie.append()
-        MovieAPIManager.shared.fetchMovieData(id: list[indexPath.row]["id"]!) { list in
+        MovieAPIManager.shared.fetchMovieData(id: list[indexPath.row]["id"]! as! String) { list in
             vc.movie = list
-            print("====vc.movie", vc.movie) // 
+            print("====vc.movie", vc.movie)
         }
         self.navigationController?.pushViewController(vc, animated: true)
     }

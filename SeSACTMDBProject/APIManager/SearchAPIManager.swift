@@ -15,7 +15,7 @@ class SearchAPIManager {
     
     private init() { }
     
-    typealias completionHandler = (Int, [[String: String]]) -> Void
+    typealias completionHandler = (Int, [[String: Any]]) -> Void
     
     func fetchData(startPage: Int, completionHandler: @escaping completionHandler) {
         let url = "https://api.themoviedb.org/3/trending/movie/week?api_key=\(APIKey.TMDB_SECRET)&page=\(startPage)"
@@ -27,7 +27,7 @@ class SearchAPIManager {
                 
                 let totalCount = json["total_results"].intValue
                 
-                var list: [[String: String]] = []
+                var list: [[String: Any]] = []
                 
                 for item in json["results"].arrayValue {
                     list.append(["poster": item["poster_path"].stringValue,
@@ -35,33 +35,12 @@ class SearchAPIManager {
                                 "title": item["title"].stringValue,
                                  "overview": item["overview"].stringValue,
                                  "id": item["id"].stringValue,
-                                 "rate": "\(item["vote_average"].doubleValue)"])
+                                 "rate": "\(item["vote_average"].doubleValue)",
+                                 "genre": item["genre_ids"][0].intValue])
+                    
                 }
                 
                 completionHandler(totalCount, list)
-                
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
-    // genre id
-    typealias completionHandler1 = ([[String: String]]) -> Void
-    
-    func fetchId(id: String, completionHandler1: @escaping completionHandler1) {
-        let url = "https://api.themoviedb.org/3/movie/\(id)?api_key=\(APIKey.TMDB_SECRET)&language=en-US"
-        AF.request(url, method: .get).validate().responseData { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-//                print( "JSON: \(json)")
-                
-                var movieList: [[String: String]] = []
-                
-                movieList.append(["id": json["id"].stringValue,
-                                      "genres": json["genres"][0]["name"].stringValue])
-                print("append")
                 
             case .failure(let error):
                 print(error)

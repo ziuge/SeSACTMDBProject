@@ -22,7 +22,7 @@ class CastTableViewController: UIViewController {
         
         castTableView.delegate = self
         castTableView.dataSource = self
-
+        
     }
 
 }
@@ -35,6 +35,5 @@ extension CastTableViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
-
     
 }

@@ -25,6 +25,7 @@
 		DE6FD23D289E34DF0080B99D /* CastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6FD23C289E34DF0080B99D /* CastTableViewCell.swift */; };
 		DE6FD23F289E73510080B99D /* MovieAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6FD23E289E73510080B99D /* MovieAPIManager.swift */; };
 		DE6FD242289E74120080B99D /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6FD241289E74120080B99D /* Movie.swift */; };
+		DE6FD244289E862A0080B99D /* GenreAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6FD243289E862A0080B99D /* GenreAPIManager.swift */; };
 		DE8A33E9289CFC400062D5A7 /* SearchAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8A33E8289CFC400062D5A7 /* SearchAPIManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		DE6FD23C289E34DF0080B99D /* CastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableViewCell.swift; sourceTree = "<group>"; };
 		DE6FD23E289E73510080B99D /* MovieAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPIManager.swift; sourceTree = "<group>"; };
 		DE6FD241289E74120080B99D /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		DE6FD243289E862A0080B99D /* GenreAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreAPIManager.swift; sourceTree = "<group>"; };
 		DE8A33E8289CFC400062D5A7 /* SearchAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,6 +141,7 @@
 			children = (
 				DE8A33E8289CFC400062D5A7 /* SearchAPIManager.swift */,
 				DE6FD23E289E73510080B99D /* MovieAPIManager.swift */,
+				DE6FD243289E862A0080B99D /* GenreAPIManager.swift */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				DE0C36D22899F86F0041D6D1 /* SearchViewController.swift in Sources */,
 				DE0C36BE2899F6BD0041D6D1 /* SceneDelegate.swift in Sources */,
 				DE0C36D42899F88A0041D6D1 /* APIKey.swift in Sources */,
+				DE6FD244289E862A0080B99D /* GenreAPIManager.swift in Sources */,
 				DE3AB245289BFBEC009396B3 /* SearchCollectionViewCell.swift in Sources */,
 				DE6FD23F289E73510080B99D /* MovieAPIManager.swift in Sources */,
 				DE0C36D62899FA270041D6D1 /* Constant.swift in Sources */,
