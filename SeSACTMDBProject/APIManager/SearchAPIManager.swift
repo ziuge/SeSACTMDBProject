@@ -46,6 +46,29 @@ class SearchAPIManager {
         }
     }
     
+    // genre id
+    typealias completionHandler1 = ([[String: String]]) -> Void
+    
+    func fetchId(id: String, completionHandler1: @escaping completionHandler1) {
+        let url = "https://api.themoviedb.org/3/movie/\(id)?api_key=\(APIKey.TMDB_SECRET)&language=en-US"
+        AF.request(url, method: .get).validate().responseData { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+//                print( "JSON: \(json)")
+                
+                var movieList: [[String: String]] = []
+                
+                movieList.append(["id": json["id"].stringValue,
+                                      "genres": json["genres"][0]["name"].stringValue])
+                print("append")
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     // MARK: 날짜 형식 바꾸기
     func changeDateFormat(date: String) -> String {
         let dateFormatter = DateFormatter()

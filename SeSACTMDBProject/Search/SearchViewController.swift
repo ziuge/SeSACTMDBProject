@@ -23,7 +23,7 @@ class SearchViewController: UIViewController {
         collectionView.register(UINib(nibName: "SearchCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SearchCollectionViewCell")
         collectionView.prefetchDataSource = self
         
-        
+        // collectionView layout
         let layout = UICollectionViewFlowLayout()
         let spacing: CGFloat = 20
         let width = UIScreen.main.bounds.width - (spacing * 2)
@@ -35,7 +35,6 @@ class SearchViewController: UIViewController {
         collectionView.collectionViewLayout = layout
         
         fetch()
-//        fetchId(id: <#T##String#>)
     }
     
     var list: [[String: String]] = []
@@ -43,31 +42,34 @@ class SearchViewController: UIViewController {
     var startPage = 1
     var totalCount = 0
     
+    // id -> genre 받아오기
+    var movieList: [[String: String]] = []
+    
+//    func fetchId(id: String) {
+//        let url = "https://api.themoviedb.org/3/movie/\(id)?api_key=\(APIKey.TMDB_SECRET)&language=en-US"
+//        AF.request(url, method: .get).validate().responseData { response in
+//            switch response.result {
+//            case .success(let value):
+//                let json = JSON(value)
+////                print( "JSON: \(json)")
+//
+//                self.movieList.append(["id": json["id"].stringValue,
+//                                      "genres": json["genres"][0]["name"].stringValue])
+//                print("append")
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//    }
+    
     func fetch() {
         SearchAPIManager.shared.fetchData(startPage: startPage) { totalCount, list in
             self.totalCount = totalCount
             self.list.append(contentsOf: list)
+
             self.collectionView.reloadData()
         }
     }
-    
-    // id -> genre 받아오기
-    var genreList: [[String: String]] = []
-    
-    func fetchId(id: String) {
-        let url = "https://api.themoviedb.org/3/movie/\(id)?api_key=\(APIKey.TMDB_SECRET)&language=en-US"
-        AF.request(url, method: .get).validate().responseData { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print( "JSON: \(json)")
-
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
 }
 
 // MARK: Pagenation
@@ -79,14 +81,11 @@ extension SearchViewController: UICollectionViewDataSourcePrefetching {
                 fetch()
             }
         }
-        print("===\(indexPaths)")
     }
     
     func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
-        print("===취소 \(indexPaths)")
     }
 }
-
 
 // MARK: CollectionView
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -102,10 +101,25 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         cell.titleLabel.text = list[indexPath.item]["title"]
         cell.dateLabel.text = list[indexPath.item]["release"]
         cell.actorLabel.text = list[indexPath.item]["overview"]
+//        cell.genreLabel.text = movieList[indexPath.item]["genres"]
         
 //        print("list", list)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "CastTableViewController") as! CastTableViewController
+        
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overFullScreen
+//        vc.movie.append()
+        MovieAPIManager.shared.fetchMovieData(id: list[indexPath.row]["id"]!) { list in
+            vc.movie = list
+            print("====vc.movie", vc.movie) // 
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
