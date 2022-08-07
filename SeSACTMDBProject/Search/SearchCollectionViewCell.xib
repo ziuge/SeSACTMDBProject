@@ -29,6 +29,10 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yMZ-fM-sV8">
+                        <rect key="frame" x="20" y="51.5" width="316" height="280"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8wg-qR-x7X">
                         <rect key="frame" x="20" y="51.5" width="316" height="280"/>
                         <subviews>
@@ -88,13 +92,17 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
+                <constraint firstItem="yMZ-fM-sV8" firstAttribute="bottom" secondItem="8wg-qR-x7X" secondAttribute="bottom" id="0En-qJ-FyP"/>
                 <constraint firstItem="8wg-qR-x7X" firstAttribute="top" secondItem="zhL-OI-d0k" secondAttribute="bottom" constant="8" id="2il-nN-gAr"/>
                 <constraint firstItem="8wg-qR-x7X" firstAttribute="trailing" secondItem="zhL-OI-d0k" secondAttribute="trailing" id="Ija-BE-NgB"/>
                 <constraint firstItem="2He-2N-tqn" firstAttribute="trailing" secondItem="zhL-OI-d0k" secondAttribute="trailing" id="N60-cF-IzV"/>
                 <constraint firstItem="8wg-qR-x7X" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="XiM-hd-NTK"/>
+                <constraint firstItem="yMZ-fM-sV8" firstAttribute="top" secondItem="8wg-qR-x7X" secondAttribute="top" id="cFy-Eu-mVy"/>
                 <constraint firstItem="2He-2N-tqn" firstAttribute="leading" secondItem="zhL-OI-d0k" secondAttribute="leading" id="drG-vx-1Yq"/>
                 <constraint firstItem="zhL-OI-d0k" firstAttribute="top" secondItem="2He-2N-tqn" secondAttribute="bottom" constant="4" id="f88-av-KIb"/>
                 <constraint firstItem="2He-2N-tqn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="lsH-YS-vg9"/>
+                <constraint firstItem="yMZ-fM-sV8" firstAttribute="leading" secondItem="8wg-qR-x7X" secondAttribute="leading" id="nkr-lE-WYH"/>
+                <constraint firstItem="yMZ-fM-sV8" firstAttribute="trailing" secondItem="8wg-qR-x7X" secondAttribute="trailing" id="oBD-kv-N5d"/>
                 <constraint firstItem="8wg-qR-x7X" firstAttribute="leading" secondItem="zhL-OI-d0k" secondAttribute="leading" id="oBv-cA-nay"/>
                 <constraint firstAttribute="trailing" secondItem="8wg-qR-x7X" secondAttribute="trailing" constant="20" id="tdM-zI-vRk"/>
             </constraints>
@@ -105,6 +113,7 @@
                 <outlet property="dateLabel" destination="2He-2N-tqn" id="VnP-YZ-e1Z"/>
                 <outlet property="genreLabel" destination="zhL-OI-d0k" id="tMw-ka-eM9"/>
                 <outlet property="imageView" destination="7Mh-x5-eN8" id="vA4-Z7-wKg"/>
+                <outlet property="shadowView" destination="yMZ-fM-sV8" id="EC8-VH-ogo"/>
                 <outlet property="titleLabel" destination="xvw-vk-iZc" id="gZc-Vf-dPS"/>
             </connections>
             <point key="canvasLocation" x="324.63768115942031" y="119.19642857142857"/>

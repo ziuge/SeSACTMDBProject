@@ -117,6 +117,8 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         let id = list[indexPath.row]["id"] as! String
         vc.id = id
+        vc.fetchCast(id: id)
+        vc.fetchMovie(id: id)
         
     }
     

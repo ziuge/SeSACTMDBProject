@@ -15,11 +15,16 @@ class SearchCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var actorLabel: UILabel!
-
+    @IBOutlet weak var shadowView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        shadow(view: cellView)
+        
+        shadow(view: shadowView)
+        cellView.layer.cornerRadius = 15
+        cellView.layer.masksToBounds = true
+        
     }
     
     // MARK: 그림자 설정
@@ -30,6 +35,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
         view.layer.shadowOpacity = 0.5
         view.layer.shadowOffset = CGSize(width: 1, height: 1)
         view.layer.shadowPath = nil
+        view.layer.masksToBounds = false
     }
 
 }

@@ -68,27 +68,29 @@
                                 <rect key="frame" x="0.0" y="244" width="414" height="618"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CastTableViewCell" rowHeight="81" id="jRt-oT-D3C" customClass="CastTableViewCell" customModule="SeSACTMDBProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="81"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CastTableViewCell" rowHeight="85" id="jRt-oT-D3C" customClass="CastTableViewCell" customModule="SeSACTMDBProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jRt-oT-D3C" id="bOk-dG-7ff">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="81"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RXb-u8-3TB">
-                                                    <rect key="frame" x="16" y="16" width="49" height="49"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RXb-u8-3TB">
+                                                    <rect key="frame" x="16" y="18" width="49" height="49"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="RXb-u8-3TB" secondAttribute="height" id="3CG-ek-UVY"/>
+                                                        <constraint firstAttribute="height" constant="49" id="TMy-Vb-FCj"/>
+                                                        <constraint firstAttribute="width" constant="49" id="nzO-K5-b91"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRM-ZB-fZt">
-                                                    <rect key="frame" x="81" y="16" width="293" height="18"/>
+                                                    <rect key="frame" x="81" y="18" width="293" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRb-9P-dcD">
-                                                    <rect key="frame" x="81" y="42" width="293" height="14.5"/>
+                                                    <rect key="frame" x="81" y="44" width="293" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -96,16 +98,20 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="zRb-9P-dcD" firstAttribute="leading" secondItem="fRM-ZB-fZt" secondAttribute="leading" id="DNk-sc-ijC"/>
-                                                <constraint firstItem="RXb-u8-3TB" firstAttribute="top" secondItem="bOk-dG-7ff" secondAttribute="top" constant="16" id="DRL-aj-f14"/>
                                                 <constraint firstItem="fRM-ZB-fZt" firstAttribute="leading" secondItem="RXb-u8-3TB" secondAttribute="trailing" constant="16" id="JZK-Tp-3Na"/>
                                                 <constraint firstItem="zRb-9P-dcD" firstAttribute="trailing" secondItem="fRM-ZB-fZt" secondAttribute="trailing" id="MeG-RZ-vw8"/>
                                                 <constraint firstItem="fRM-ZB-fZt" firstAttribute="top" secondItem="RXb-u8-3TB" secondAttribute="top" id="Tng-mN-6Zy"/>
                                                 <constraint firstItem="zRb-9P-dcD" firstAttribute="top" secondItem="fRM-ZB-fZt" secondAttribute="bottom" constant="8" symbolic="YES" id="aaL-Do-rwl"/>
                                                 <constraint firstItem="RXb-u8-3TB" firstAttribute="leading" secondItem="bOk-dG-7ff" secondAttribute="leading" constant="16" id="eS0-IJ-HNH"/>
+                                                <constraint firstItem="RXb-u8-3TB" firstAttribute="centerY" secondItem="bOk-dG-7ff" secondAttribute="centerY" id="eWH-4e-a3A"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="fRM-ZB-fZt" secondAttribute="trailing" constant="20" id="zTz-yh-WDE"/>
-                                                <constraint firstAttribute="bottom" secondItem="RXb-u8-3TB" secondAttribute="bottom" constant="16" id="ze8-Pq-p8G"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="castImageView" destination="RXb-u8-3TB" id="Bg6-K1-Cbn"/>
+                                            <outlet property="characterLabel" destination="fRM-ZB-fZt" id="6Vi-Rp-6Wc"/>
+                                            <outlet property="nameLabel" destination="zRb-9P-dcD" id="Zp4-Yz-S1e"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

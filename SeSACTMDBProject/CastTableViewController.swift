@@ -11,9 +11,10 @@ import Alamofire
 import Kingfisher
 import SwiftyJSON
 
+var cast: [[String: String]] = []
+
 class CastTableViewController: UIViewController {
     
-    var cast: [[String: String]] = []
     var movie: [String: String] = [:]
     var id: String = "0"
 
@@ -34,18 +35,17 @@ class CastTableViewController: UIViewController {
     
     func fetchCast(id: String) {
         CastAPIManager.shared.fetchData(id: id) { id, list in
-            self.cast = list
-            print(self.cast)
+            cast = list
+//            print("cast", self.cast)
         }
     }
     
     func fetchMovie(id: String) {
         MovieAPIManager.shared.fetchMovieData(id: id) { list in
             self.movie = list[0]
-            print("movie", self.movie)
+//            print("movie", self.movie)
             self.configure()
         }
-        
     }
     
     func configure() {
@@ -64,11 +64,20 @@ class CastTableViewController: UIViewController {
 
 extension CastTableViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        cast.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        86
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CastTableViewCell", for: indexPath) as? CastTableViewCell else { return UITableViewCell() }
+    
+        cell.configureCell(index: indexPath.row)
+        
+        
+        return cell
     }
     
 }
