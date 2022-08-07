@@ -56,15 +56,15 @@ class SearchViewController: UIViewController {
         }
     }
     
-//    var id = "550"
-    var castList: [[String: String]] = []
-    
-    func fetchCast(id: String) {
-        CastAPIManager.shared.fetchData(id: id) { id, list in
-            self.castList = list
-            print("fetchCast success", id)
-        }
-    }
+//
+//    var castList: [[String: String]] = []
+//    
+//    func fetchCast(id: String) {
+//        CastAPIManager.shared.fetchData(id: id) { id, list in
+//            self.castList = list
+//            
+//        }
+//    }
 }
 
 // MARK: Pagenation

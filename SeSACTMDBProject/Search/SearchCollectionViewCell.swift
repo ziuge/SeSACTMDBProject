@@ -26,7 +26,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
     func shadow(view: UIView) {
         view.layer.cornerRadius = 15
         view.layer.shadowColor = UIColor.darkGray.cgColor
-        view.layer.shadowRadius = 6
+        view.layer.shadowRadius = 5
         view.layer.shadowOpacity = 0.5
         view.layer.shadowOffset = CGSize(width: 1, height: 1)
         view.layer.shadowPath = nil

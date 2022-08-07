@@ -6,11 +6,15 @@
 //
 
 import UIKit
+
+import Alamofire
+import Kingfisher
 import SwiftyJSON
 
 class CastTableViewController: UIViewController {
     
     var cast: [[String: String]] = []
+    var movie: [String: String] = [:]
     var id: String = "0"
 
     @IBOutlet weak var castTableView: UITableView!
@@ -25,19 +29,37 @@ class CastTableViewController: UIViewController {
         castTableView.dataSource = self
         
         fetchCast(id: id)
-
+        fetchMovie(id: id)
     }
     
     func fetchCast(id: String) {
         CastAPIManager.shared.fetchData(id: id) { id, list in
             self.cast = list
-            print("==CastTableVC== fetchCast success", id)
-            print("list", list)
-            print("self.cast", self.cast)
-            
+            print(self.cast)
         }
     }
-
+    
+    func fetchMovie(id: String) {
+        MovieAPIManager.shared.fetchMovieData(id: id) { list in
+            self.movie = list[0]
+            print("movie", self.movie)
+            self.configure()
+        }
+        
+    }
+    
+    func configure() {
+        let backURL = URL(string: EndPoint.tmdbPosterURL + movie["backdrop_path"]!)
+        backgroundImageView.kf.setImage(with: backURL)
+        
+        let posterURL = URL(string: EndPoint.tmdbPosterURL + movie["poster_path"]!)
+        posterImageView.kf.setImage(with: posterURL)
+        
+        titleLabel.text = movie["title"]
+        titleLabel.textColor = UIColor(.white)
+        titleLabel.font = .boldSystemFont(ofSize: 16)
+    }
+    
 }
 
 extension CastTableViewController: UITableViewDelegate, UITableViewDataSource {

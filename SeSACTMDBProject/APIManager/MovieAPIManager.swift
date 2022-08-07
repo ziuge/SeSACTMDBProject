@@ -23,22 +23,18 @@ class MovieAPIManager {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print( "JSON: \(json)")
+                
                 
                 var list: [[String: String]] = []
                 
                 list.append(["title": json["title"].stringValue,
                              "homepage": json["homepage"].stringValue,
                              "runtime": json["runtime"].stringValue,
-                             "overview": json["overview"].stringValue])
+                             "overview": json["overview"].stringValue,
+                             "backdrop_path": json["backdrop_path"].stringValue,
+                             "poster_path": json["poster_path"].stringValue])
                 
-//                for item in json.arrayValue[0] {
-//
-//                }
-                
-//                list.append(json.arrayValue)
-//
-//                completionHandler(list)
+                completionHandler(list)
                 
             case .failure(let error):
                 print(error)
