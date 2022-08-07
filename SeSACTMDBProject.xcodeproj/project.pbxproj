@@ -27,6 +27,7 @@
 		DE6FD242289E74120080B99D /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6FD241289E74120080B99D /* Movie.swift */; };
 		DE6FD244289E862A0080B99D /* GenreAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6FD243289E862A0080B99D /* GenreAPIManager.swift */; };
 		DE8A33E9289CFC400062D5A7 /* SearchAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8A33E8289CFC400062D5A7 /* SearchAPIManager.swift */; };
+		DEF0D08A289F984F00AD88CB /* CastAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF0D089289F984F00AD88CB /* CastAPIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		DE6FD241289E74120080B99D /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		DE6FD243289E862A0080B99D /* GenreAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreAPIManager.swift; sourceTree = "<group>"; };
 		DE8A33E8289CFC400062D5A7 /* SearchAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIManager.swift; sourceTree = "<group>"; };
+		DEF0D089289F984F00AD88CB /* CastAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastAPIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				DE8A33E8289CFC400062D5A7 /* SearchAPIManager.swift */,
 				DE6FD23E289E73510080B99D /* MovieAPIManager.swift */,
 				DE6FD243289E862A0080B99D /* GenreAPIManager.swift */,
+				DEF0D089289F984F00AD88CB /* CastAPIManager.swift */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			files = (
 				DE8A33E9289CFC400062D5A7 /* SearchAPIManager.swift in Sources */,
 				DE0C36BC2899F6BD0041D6D1 /* AppDelegate.swift in Sources */,
+				DEF0D08A289F984F00AD88CB /* CastAPIManager.swift in Sources */,
 				DE6FD23B289E30270080B99D /* CastTableViewController.swift in Sources */,
 				DE0C36D22899F86F0041D6D1 /* SearchViewController.swift in Sources */,
 				DE0C36BE2899F6BD0041D6D1 /* SceneDelegate.swift in Sources */,

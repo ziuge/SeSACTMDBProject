@@ -10,7 +10,8 @@ import SwiftyJSON
 
 class CastTableViewController: UIViewController {
     
-    var movie: [[String: String]] = []
+    var cast: [[String: String]] = []
+    var id: String = "0"
 
     @IBOutlet weak var castTableView: UITableView!
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -23,6 +24,18 @@ class CastTableViewController: UIViewController {
         castTableView.delegate = self
         castTableView.dataSource = self
         
+        fetchCast(id: id)
+
+    }
+    
+    func fetchCast(id: String) {
+        CastAPIManager.shared.fetchData(id: id) { id, list in
+            self.cast = list
+            print("==CastTableVC== fetchCast success", id)
+            print("list", list)
+            print("self.cast", self.cast)
+            
+        }
     }
 
 }

@@ -25,11 +25,11 @@ class SearchViewController: UIViewController {
         
         // collectionView layout
         let layout = UICollectionViewFlowLayout()
-        let spacing: CGFloat = 20
+        let spacing: CGFloat = 8
         let width = UIScreen.main.bounds.width - (spacing * 2)
-        layout.itemSize = CGSize(width: width, height: width * 1.2)
+        layout.itemSize = CGSize(width: width, height: width)
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
         layout.minimumLineSpacing = spacing
         layout.minimumInteritemSpacing = spacing
         collectionView.collectionViewLayout = layout
@@ -53,6 +53,16 @@ class SearchViewController: UIViewController {
         GenreAPIManager.shared.fetchData { list in
             self.genreList = list
             self.collectionView.reloadData()
+        }
+    }
+    
+//    var id = "550"
+    var castList: [[String: String]] = []
+    
+    func fetchCast(id: String) {
+        CastAPIManager.shared.fetchData(id: id) { id, list in
+            self.castList = list
+            print("fetchCast success", id)
         }
     }
 }
@@ -83,15 +93,16 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         let url = URL(string: EndPoint.tmdbPosterURL + "\(list[indexPath.item]["poster"]!)")
         cell.imageView.kf.setImage(with: url!)
-        cell.titleLabel.text = list[indexPath.item]["title"] as! String
-        cell.dateLabel.text = list[indexPath.item]["release"] as! String
-        cell.actorLabel.text = list[indexPath.item]["overview"] as! String
-        print("=======genre",list[indexPath.item]["genre"] as! Int)
+        
+        let title = list[indexPath.item]["title"] as! String
+        let release = list[indexPath.item]["release"] as! String
+        let actor = list[indexPath.item]["overview"] as! String
         let genre = list[indexPath.item]["genre"] as! Int
+        
+        cell.titleLabel.text = title
+        cell.dateLabel.text = release
+        cell.actorLabel.text = actor
         cell.genreLabel.text = genreList[genre]
-        
-        
-//        print("list", list)
         
         return cell
     }
@@ -100,14 +111,13 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "CastTableViewController") as! CastTableViewController
         
-        vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overFullScreen
-//        vc.movie.append()
-        MovieAPIManager.shared.fetchMovieData(id: list[indexPath.row]["id"]! as! String) { list in
-            vc.movie = list
-            print("====vc.movie", vc.movie)
-        }
+        
         self.navigationController?.pushViewController(vc, animated: true)
+        
+        let id = list[indexPath.row]["id"] as! String
+        vc.id = id
+        
     }
     
 }

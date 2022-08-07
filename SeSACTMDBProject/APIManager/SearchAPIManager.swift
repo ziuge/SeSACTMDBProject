@@ -37,7 +37,6 @@ class SearchAPIManager {
                                  "id": item["id"].stringValue,
                                  "rate": "\(item["vote_average"].doubleValue)",
                                  "genre": item["genre_ids"][0].intValue])
-                    
                 }
                 
                 completionHandler(totalCount, list)
