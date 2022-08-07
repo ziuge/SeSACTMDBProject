@@ -99,8 +99,15 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         let id = self.list[indexPath.item]["id"] as! String
         var videoURL = ""
-        VideoAPIManager.shared.fetchData(id: id) { id, video in
-            videoURL = "https://www.youtube.com/watch?v=" + video
+        VideoAPIManager.shared.fetchData(id: id) { id, video, site in
+            if site == "YouTube" {
+                videoURL = "https://www.youtube.com/watch?v=" + video
+            } else if site == "Vimeo" {
+                videoURL = "https://vimeo.com/" + video
+            } else {
+                print("site", site)
+            }
+            
             print("videoURL", videoURL)
         }
         

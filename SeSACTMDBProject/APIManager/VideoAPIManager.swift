@@ -15,7 +15,7 @@ class VideoAPIManager {
     
     private init() { }
     
-    typealias completionHandler = (String, String) -> Void
+    typealias completionHandler = (String, String, String) -> Void
     
     func fetchData(id: String, completionHandler: @escaping completionHandler) {
         let url = EndPoint.videoURL + id + "/videos?api_key=\(APIKey.TMDB_SECRET)&language=en-US"
@@ -27,7 +27,9 @@ class VideoAPIManager {
                 
                 let video = json["results"][0]["key"].stringValue
                 
-                completionHandler(id, video)
+                let site = json["results"][0]["site"].stringValue
+                
+                completionHandler(id, video, site)
                 
             case .failure(let error):
                 print(error)
