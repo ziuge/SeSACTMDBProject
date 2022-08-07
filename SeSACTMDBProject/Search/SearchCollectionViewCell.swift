@@ -15,7 +15,11 @@ class SearchCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var actorLabel: UILabel!
+    @IBOutlet weak var seperateView: UIView!
     @IBOutlet weak var shadowView: UIView!
+    @IBOutlet weak var linkBtn: UIButton!
+    
+    var addActionHandler: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +29,12 @@ class SearchCollectionViewCell: UICollectionViewCell {
         cellView.layer.cornerRadius = 15
         cellView.layer.masksToBounds = true
         
+        linkBtn.layer.cornerRadius = 45 / 2
+        
+    }
+    
+    @IBAction func linkBtnClicked(_ sender: UIButton) {
+        self.addActionHandler?()
     }
     
     // MARK: 그림자 설정

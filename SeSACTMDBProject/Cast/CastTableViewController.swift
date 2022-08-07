@@ -82,7 +82,7 @@ extension CastTableViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        print("section", section)
+//        print("section", section)
         if section == 0 {
             return "OverView"
         } else {
@@ -95,28 +95,16 @@ extension CastTableViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CastOverviewTableViewCell", for: indexPath) as? CastOverviewTableViewCell else { return UITableViewCell() }
-            
             cell.overviewLabel.text = overview
             
             return cell
-            
-            
-//            let cell = CastOverviewTableViewCell()
-//            self.overview = movie["overview"]
-//
-//            print("===overview", overview)
-//            cell.overviewLabel.text = overview
-//            return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CastTableViewCell", for: indexPath) as? CastTableViewCell else { return UITableViewCell() }
             cell.configureCell(index: indexPath.row)
             
             return cell
         }
-        
     }
-    
 }

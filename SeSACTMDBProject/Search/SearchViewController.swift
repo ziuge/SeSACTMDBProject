@@ -38,6 +38,7 @@ class SearchViewController: UIViewController {
     }
     
     var list: [[String: Any]] = []
+    var id = ""
     
     var startPage = 1
     var totalCount = 0
@@ -54,17 +55,9 @@ class SearchViewController: UIViewController {
             self.genreList = list
             self.collectionView.reloadData()
         }
+        
     }
-    
-//
-//    var castList: [[String: String]] = []
-//    
-//    func fetchCast(id: String) {
-//        CastAPIManager.shared.fetchData(id: id) { id, list in
-//            self.castList = list
-//            
-//        }
-//    }
+
 }
 
 // MARK: Pagenation
@@ -103,6 +96,23 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         cell.dateLabel.text = release
         cell.actorLabel.text = actor
         cell.genreLabel.text = genreList[genre]
+        
+        let id = self.list[indexPath.item]["id"] as! String
+        var videoURL = ""
+        VideoAPIManager.shared.fetchData(id: id) { id, video in
+            videoURL = "https://www.youtube.com/watch?v=" + video
+            print("videoURL", videoURL)
+        }
+        
+        cell.addActionHandler = {
+            
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
+            
+            vc.modalPresentationStyle = .overFullScreen
+            vc.destinationURL = videoURL
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         
         return cell
     }

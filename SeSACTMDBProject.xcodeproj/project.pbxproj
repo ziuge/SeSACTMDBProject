@@ -29,6 +29,8 @@
 		DE6FD242289E74120080B99D /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6FD241289E74120080B99D /* Movie.swift */; };
 		DE6FD244289E862A0080B99D /* GenreAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6FD243289E862A0080B99D /* GenreAPIManager.swift */; };
 		DE8A33E9289CFC400062D5A7 /* SearchAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8A33E8289CFC400062D5A7 /* SearchAPIManager.swift */; };
+		DEDC8AA128A021EC0028E399 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC8AA028A021EC0028E399 /* WebViewController.swift */; };
+		DEDC8AA328A026CD0028E399 /* VideoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC8AA228A026CD0028E399 /* VideoAPIManager.swift */; };
 		DEF0D08A289F984F00AD88CB /* CastAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF0D089289F984F00AD88CB /* CastAPIManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,8 @@
 		DE6FD241289E74120080B99D /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		DE6FD243289E862A0080B99D /* GenreAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreAPIManager.swift; sourceTree = "<group>"; };
 		DE8A33E8289CFC400062D5A7 /* SearchAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIManager.swift; sourceTree = "<group>"; };
+		DEDC8AA028A021EC0028E399 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		DEDC8AA228A026CD0028E399 /* VideoAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAPIManager.swift; sourceTree = "<group>"; };
 		DEF0D089289F984F00AD88CB /* CastAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastAPIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,10 +103,8 @@
 				DE0C36BB2899F6BD0041D6D1 /* AppDelegate.swift */,
 				DE0C36BD2899F6BD0041D6D1 /* SceneDelegate.swift */,
 				DE0C36C12899F6BD0041D6D1 /* Main.storyboard */,
-				DE6FD23A289E30270080B99D /* CastTableViewController.swift */,
-				DE6FD23C289E34DF0080B99D /* CastTableViewCell.swift */,
-				DE1A7F8D289FFBE600882B70 /* CastOverviewTableViewCell.swift */,
-				DE1A7F8E289FFBE600882B70 /* CastOverviewTableViewCell.xib */,
+				DEDC8AA028A021EC0028E399 /* WebViewController.swift */,
+				DEDC8A9F28A021D90028E399 /* Cast */,
 				DE8A33E6289CF72D0062D5A7 /* Search */,
 				DE0C36C42899F6C00041D6D1 /* Assets.xcassets */,
 				DE0C36C62899F6C00041D6D1 /* LaunchScreen.storyboard */,
@@ -151,8 +153,20 @@
 				DE6FD23E289E73510080B99D /* MovieAPIManager.swift */,
 				DE6FD243289E862A0080B99D /* GenreAPIManager.swift */,
 				DEF0D089289F984F00AD88CB /* CastAPIManager.swift */,
+				DEDC8AA228A026CD0028E399 /* VideoAPIManager.swift */,
 			);
 			path = APIManager;
+			sourceTree = "<group>";
+		};
+		DEDC8A9F28A021D90028E399 /* Cast */ = {
+			isa = PBXGroup;
+			children = (
+				DE6FD23A289E30270080B99D /* CastTableViewController.swift */,
+				DE6FD23C289E34DF0080B99D /* CastTableViewCell.swift */,
+				DE1A7F8D289FFBE600882B70 /* CastOverviewTableViewCell.swift */,
+				DE1A7F8E289FFBE600882B70 /* CastOverviewTableViewCell.xib */,
+			);
+			path = Cast;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,7 +265,9 @@
 				DE3AB245289BFBEC009396B3 /* SearchCollectionViewCell.swift in Sources */,
 				DE6FD23F289E73510080B99D /* MovieAPIManager.swift in Sources */,
 				DE0C36D62899FA270041D6D1 /* Constant.swift in Sources */,
+				DEDC8AA328A026CD0028E399 /* VideoAPIManager.swift in Sources */,
 				DE6FD242289E74120080B99D /* Movie.swift in Sources */,
+				DEDC8AA128A021EC0028E399 /* WebViewController.swift in Sources */,
 				DE6FD23D289E34DF0080B99D /* CastTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
