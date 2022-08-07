@@ -36,15 +36,17 @@ class CastTableViewController: UIViewController {
     func fetchCast(id: String) {
         CastAPIManager.shared.fetchData(id: id) { id, list in
             cast = list
-//            print("cast", self.cast)
+            print("fetchCast called", cast[0])
+            self.castTableView.reloadData()
         }
     }
     
     func fetchMovie(id: String) {
         MovieAPIManager.shared.fetchMovieData(id: id) { list in
             self.movie = list[0]
-//            print("movie", self.movie)
+            print("movie called", self.movie)
             self.configure()
+            self.castTableView.reloadData()
         }
     }
     
@@ -73,7 +75,7 @@ extension CastTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CastTableViewCell", for: indexPath) as? CastTableViewCell else { return UITableViewCell() }
-    
+        
         cell.configureCell(index: indexPath.row)
         
         

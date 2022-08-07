@@ -25,7 +25,7 @@ class CastTableViewCell: UITableViewCell {
 
     func configureCell(index: Int) {
         if cast.count > 0 {
-            print("cast not 0", cast)
+            print("cast not 0, configureCell Called")
             let profile = cast[index]["profile"]!
             let url = URL(string: EndPoint.tmdbPosterURL + profile)
             castImageView.kf.setImage(with: url)
