@@ -17,6 +17,7 @@ class CastTableViewController: UIViewController {
     
     var movie: [String: String] = [:]
     var id: String = "0"
+    var overview: String = "Overview here"
 
     @IBOutlet weak var castTableView: UITableView!
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -28,6 +29,8 @@ class CastTableViewController: UIViewController {
         
         castTableView.delegate = self
         castTableView.dataSource = self
+        
+        castTableView.register(UINib(nibName: "CastOverviewTableViewCell", bundle: nil), forCellReuseIdentifier: "CastOverviewTableViewCell")
         
         fetchCast(id: id)
         fetchMovie(id: id)
@@ -45,6 +48,7 @@ class CastTableViewController: UIViewController {
         MovieAPIManager.shared.fetchMovieData(id: id) { list in
             self.movie = list[0]
             print("movie called", self.movie)
+            self.overview = list[0]["overview"]!
             self.configure()
             self.castTableView.reloadData()
         }
@@ -59,14 +63,31 @@ class CastTableViewController: UIViewController {
         
         titleLabel.text = movie["title"]
         titleLabel.textColor = UIColor(.white)
-        titleLabel.font = .boldSystemFont(ofSize: 16)
+        titleLabel.font = .boldSystemFont(ofSize: 18)
     }
     
 }
 
 extension CastTableViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        cast.count
+        if section == 0 {
+            return 1
+        } else {
+            return cast.count
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        print("section", section)
+        if section == 0 {
+            return "OverView"
+        } else {
+            return "Cast"
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -74,12 +95,28 @@ extension CastTableViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CastTableViewCell", for: indexPath) as? CastTableViewCell else { return UITableViewCell() }
         
-        cell.configureCell(index: indexPath.row)
+        if indexPath.section == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CastOverviewTableViewCell", for: indexPath) as? CastOverviewTableViewCell else { return UITableViewCell() }
+            
+            cell.overviewLabel.text = overview
+            
+            return cell
+            
+            
+//            let cell = CastOverviewTableViewCell()
+//            self.overview = movie["overview"]
+//
+//            print("===overview", overview)
+//            cell.overviewLabel.text = overview
+//            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CastTableViewCell", for: indexPath) as? CastTableViewCell else { return UITableViewCell() }
+            cell.configureCell(index: indexPath.row)
+            
+            return cell
+        }
         
-        
-        return cell
     }
     
 }
