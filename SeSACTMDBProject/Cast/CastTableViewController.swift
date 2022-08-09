@@ -18,6 +18,8 @@ class CastTableViewController: UIViewController {
     var movie: [String: String] = [:]
     var id: String = "0"
     var overview: String = "Overview here"
+    
+    var isExpanded = false
 
     @IBOutlet weak var castTableView: UITableView!
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -29,6 +31,7 @@ class CastTableViewController: UIViewController {
         
         castTableView.delegate = self
         castTableView.dataSource = self
+        castTableView.rowHeight = UITableView.automaticDimension
         
         castTableView.register(UINib(nibName: "CastOverviewTableViewCell", bundle: nil), forCellReuseIdentifier: "CastOverviewTableViewCell")
         
@@ -91,13 +94,18 @@ extension CastTableViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        86
+        if indexPath.section == 0 {
+            return UITableView.automaticDimension
+        } else {
+            return 86
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CastOverviewTableViewCell", for: indexPath) as? CastOverviewTableViewCell else { return UITableViewCell() }
             cell.overviewLabel.text = overview
+            cell.overviewLabel.numberOfLines = isExpanded ? 0 : 2
             
             return cell
         } else {
@@ -105,6 +113,13 @@ extension CastTableViewController: UITableViewDelegate, UITableViewDataSource {
             cell.configureCell(index: indexPath.row)
             
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0, indexPath.row == 0 {
+            isExpanded = !isExpanded
+            tableView.reloadData()
         }
     }
 }

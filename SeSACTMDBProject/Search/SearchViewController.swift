@@ -24,15 +24,18 @@ class SearchViewController: UIViewController {
         collectionView.prefetchDataSource = self
         
         // collectionView layout
-        let layout = UICollectionViewFlowLayout()
-        let spacing: CGFloat = 8
-        let width = UIScreen.main.bounds.width - (spacing * 2)
-        layout.itemSize = CGSize(width: width, height: width)
-        layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
-        layout.minimumLineSpacing = spacing
-        layout.minimumInteritemSpacing = spacing
-        collectionView.collectionViewLayout = layout
+        DispatchQueue.main.async {
+            let layout = UICollectionViewFlowLayout()
+            let spacing: CGFloat = 8
+            let width = UIScreen.main.bounds.width - (spacing * 2)
+            layout.itemSize = CGSize(width: width, height: width)
+            layout.scrollDirection = .vertical
+            layout.sectionInset = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
+            layout.minimumLineSpacing = spacing
+            layout.minimumInteritemSpacing = spacing
+            self.collectionView.collectionViewLayout = layout
+        }
+        
         
         fetch()
     }
