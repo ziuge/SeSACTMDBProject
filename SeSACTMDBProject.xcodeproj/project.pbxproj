@@ -16,6 +16,7 @@
 		DE0C36D22899F86F0041D6D1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0C36D12899F86F0041D6D1 /* SearchViewController.swift */; };
 		DE0C36D42899F88A0041D6D1 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0C36D32899F88A0041D6D1 /* APIKey.swift */; };
 		DE0C36D62899FA270041D6D1 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0C36D52899FA270041D6D1 /* Constant.swift */; };
+		DE10F77228A2431C00E78677 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE10F77128A2431C00E78677 /* MainViewController.swift */; };
 		DE1A7F8F289FFBE600882B70 /* CastOverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1A7F8D289FFBE600882B70 /* CastOverviewTableViewCell.swift */; };
 		DE1A7F90289FFBE600882B70 /* CastOverviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE1A7F8E289FFBE600882B70 /* CastOverviewTableViewCell.xib */; };
 		DE3AB245289BFBEC009396B3 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3AB243289BFBEC009396B3 /* SearchCollectionViewCell.swift */; };
@@ -29,6 +30,9 @@
 		DE6FD242289E74120080B99D /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6FD241289E74120080B99D /* Movie.swift */; };
 		DE6FD244289E862A0080B99D /* GenreAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6FD243289E862A0080B99D /* GenreAPIManager.swift */; };
 		DE8A33E9289CFC400062D5A7 /* SearchAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8A33E8289CFC400062D5A7 /* SearchAPIManager.swift */; };
+		DEA189D928A244050010692F /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA189D828A244050010692F /* MainTableViewCell.swift */; };
+		DEA189DC28A2460A0010692F /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA189DA28A246090010692F /* CardCollectionViewCell.swift */; };
+		DEA189DD28A2460A0010692F /* CardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA189DB28A2460A0010692F /* CardCollectionViewCell.xib */; };
 		DEDC8AA128A021EC0028E399 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC8AA028A021EC0028E399 /* WebViewController.swift */; };
 		DEDC8AA328A026CD0028E399 /* VideoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC8AA228A026CD0028E399 /* VideoAPIManager.swift */; };
 		DEF0D08A289F984F00AD88CB /* CastAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF0D089289F984F00AD88CB /* CastAPIManager.swift */; };
@@ -46,6 +50,7 @@
 		DE0C36D12899F86F0041D6D1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DE0C36D32899F88A0041D6D1 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		DE0C36D52899FA270041D6D1 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		DE10F77128A2431C00E78677 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DE1A7F8D289FFBE600882B70 /* CastOverviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastOverviewTableViewCell.swift; sourceTree = "<group>"; };
 		DE1A7F8E289FFBE600882B70 /* CastOverviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastOverviewTableViewCell.xib; sourceTree = "<group>"; };
 		DE3AB243289BFBEC009396B3 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -56,6 +61,9 @@
 		DE6FD241289E74120080B99D /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		DE6FD243289E862A0080B99D /* GenreAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreAPIManager.swift; sourceTree = "<group>"; };
 		DE8A33E8289CFC400062D5A7 /* SearchAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIManager.swift; sourceTree = "<group>"; };
+		DEA189D828A244050010692F /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		DEA189DA28A246090010692F /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		DEA189DB28A2460A0010692F /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
 		DEDC8AA028A021EC0028E399 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		DEDC8AA228A026CD0028E399 /* VideoAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAPIManager.swift; sourceTree = "<group>"; };
 		DEF0D089289F984F00AD88CB /* CastAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastAPIManager.swift; sourceTree = "<group>"; };
@@ -103,6 +111,7 @@
 				DE0C36BB2899F6BD0041D6D1 /* AppDelegate.swift */,
 				DE0C36BD2899F6BD0041D6D1 /* SceneDelegate.swift */,
 				DE0C36C12899F6BD0041D6D1 /* Main.storyboard */,
+				DEA189DE28A246100010692F /* Main */,
 				DEDC8AA028A021EC0028E399 /* WebViewController.swift */,
 				DEDC8A9F28A021D90028E399 /* Cast */,
 				DE8A33E6289CF72D0062D5A7 /* Search */,
@@ -156,6 +165,17 @@
 				DEDC8AA228A026CD0028E399 /* VideoAPIManager.swift */,
 			);
 			path = APIManager;
+			sourceTree = "<group>";
+		};
+		DEA189DE28A246100010692F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DE10F77128A2431C00E78677 /* MainViewController.swift */,
+				DEA189D828A244050010692F /* MainTableViewCell.swift */,
+				DEA189DA28A246090010692F /* CardCollectionViewCell.swift */,
+				DEA189DB28A2460A0010692F /* CardCollectionViewCell.xib */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		DEDC8A9F28A021D90028E399 /* Cast */ = {
@@ -242,6 +262,7 @@
 				DE0C36C82899F6C00041D6D1 /* LaunchScreen.storyboard in Resources */,
 				DE3AB246289BFBEC009396B3 /* SearchCollectionViewCell.xib in Resources */,
 				DE0C36C52899F6C00041D6D1 /* Assets.xcassets in Resources */,
+				DEA189DD28A2460A0010692F /* CardCollectionViewCell.xib in Resources */,
 				DE0C36C32899F6BD0041D6D1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,9 +280,12 @@
 				DE1A7F8F289FFBE600882B70 /* CastOverviewTableViewCell.swift in Sources */,
 				DE6FD23B289E30270080B99D /* CastTableViewController.swift in Sources */,
 				DE0C36D22899F86F0041D6D1 /* SearchViewController.swift in Sources */,
+				DEA189DC28A2460A0010692F /* CardCollectionViewCell.swift in Sources */,
 				DE0C36BE2899F6BD0041D6D1 /* SceneDelegate.swift in Sources */,
+				DE10F77228A2431C00E78677 /* MainViewController.swift in Sources */,
 				DE0C36D42899F88A0041D6D1 /* APIKey.swift in Sources */,
 				DE6FD244289E862A0080B99D /* GenreAPIManager.swift in Sources */,
+				DEA189D928A244050010692F /* MainTableViewCell.swift in Sources */,
 				DE3AB245289BFBEC009396B3 /* SearchCollectionViewCell.swift in Sources */,
 				DE6FD23F289E73510080B99D /* MovieAPIManager.swift in Sources */,
 				DE0C36D62899FA270041D6D1 /* Constant.swift in Sources */,

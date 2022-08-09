@@ -42,7 +42,7 @@ class CastTableViewController: UIViewController {
     func fetchCast(id: String) {
         CastAPIManager.shared.fetchData(id: id) { id, list in
             cast = list
-            print("fetchCast called", cast[0])
+//            print("fetchCast called", cast[0])
             self.castTableView.reloadData()
         }
     }
@@ -50,7 +50,7 @@ class CastTableViewController: UIViewController {
     func fetchMovie(id: String) {
         MovieAPIManager.shared.fetchMovieData(id: id) { list in
             self.movie = list[0]
-            print("movie called", self.movie)
+//            print("movie called", self.movie)
             self.overview = list[0]["overview"]!
             self.configure()
             self.castTableView.reloadData()

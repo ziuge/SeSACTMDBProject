@@ -23,10 +23,8 @@ class VideoAPIManager {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print( "JSON: \(json["results"][0])")
-                
+//                print( "JSON: \(json["results"][0])")
                 let video = json["results"][0]["key"].stringValue
-                
                 let site = json["results"][0]["site"].stringValue
                 
                 completionHandler(id, video, site)

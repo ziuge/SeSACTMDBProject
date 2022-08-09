@@ -22,20 +22,8 @@ class SearchViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "SearchCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SearchCollectionViewCell")
         collectionView.prefetchDataSource = self
-        
-        // collectionView layout
-        DispatchQueue.main.async {
-            let layout = UICollectionViewFlowLayout()
-            let spacing: CGFloat = 8
-            let width = UIScreen.main.bounds.width - (spacing * 2)
-            layout.itemSize = CGSize(width: width, height: width)
-            layout.scrollDirection = .vertical
-            layout.sectionInset = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
-            layout.minimumLineSpacing = spacing
-            layout.minimumInteritemSpacing = spacing
-            self.collectionView.collectionViewLayout = layout
-        }
-        
+        collectionView.collectionViewLayout = collectionViewLayout()
+        collectionView.isPagingEnabled = true
         
         fetch()
     }
@@ -59,6 +47,19 @@ class SearchViewController: UIViewController {
             self.collectionView.reloadData()
         }
         
+    }
+    
+    func collectionViewLayout() -> UICollectionViewFlowLayout {
+        let layout = UICollectionViewFlowLayout()
+        let spacing: CGFloat = 8
+        let width = UIScreen.main.bounds.width - spacing
+        layout.itemSize = CGSize(width: width, height: width)
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
+        layout.minimumLineSpacing = spacing
+        layout.minimumInteritemSpacing = spacing
+        
+        return layout
     }
 
 }
@@ -111,7 +112,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 print("site", site)
             }
             
-            print("videoURL", videoURL)
+//            print("videoURL", videoURL)
         }
         
         cell.addActionHandler = {
