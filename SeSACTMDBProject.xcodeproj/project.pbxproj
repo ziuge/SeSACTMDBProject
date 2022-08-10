@@ -35,6 +35,13 @@
 		DEA189DD28A2460A0010692F /* CardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA189DB28A2460A0010692F /* CardCollectionViewCell.xib */; };
 		DEDC8AA128A021EC0028E399 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC8AA028A021EC0028E399 /* WebViewController.swift */; };
 		DEDC8AA328A026CD0028E399 /* VideoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC8AA228A026CD0028E399 /* VideoAPIManager.swift */; };
+		DEE0E22828A3800800B77CBC /* RecommendationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE0E22628A3800800B77CBC /* RecommendationsTableViewCell.swift */; };
+		DEE0E22B28A380B400B77CBC /* PosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE0E22A28A380B400B77CBC /* PosterView.swift */; };
+		DEE0E22D28A380D000B77CBC /* PosterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEE0E22C28A380D000B77CBC /* PosterView.xib */; };
+		DEE0E23028A3830E00B77CBC /* RecommendationsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE0E22E28A3830E00B77CBC /* RecommendationsCollectionViewCell.swift */; };
+		DEE0E23128A3830E00B77CBC /* RecommendationsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEE0E22F28A3830E00B77CBC /* RecommendationsCollectionViewCell.xib */; };
+		DEE0E23728A38AAE00B77CBC /* RecommendationsAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE0E23628A38AAE00B77CBC /* RecommendationsAPIManager.swift */; };
+		DEE0E23928A394BC00B77CBC /* SimilarAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE0E23828A394BC00B77CBC /* SimilarAPIManager.swift */; };
 		DEF0D08A289F984F00AD88CB /* CastAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF0D089289F984F00AD88CB /* CastAPIManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +73,13 @@
 		DEA189DB28A2460A0010692F /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
 		DEDC8AA028A021EC0028E399 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		DEDC8AA228A026CD0028E399 /* VideoAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAPIManager.swift; sourceTree = "<group>"; };
+		DEE0E22628A3800800B77CBC /* RecommendationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsTableViewCell.swift; sourceTree = "<group>"; };
+		DEE0E22A28A380B400B77CBC /* PosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterView.swift; sourceTree = "<group>"; };
+		DEE0E22C28A380D000B77CBC /* PosterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PosterView.xib; sourceTree = "<group>"; };
+		DEE0E22E28A3830E00B77CBC /* RecommendationsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsCollectionViewCell.swift; sourceTree = "<group>"; };
+		DEE0E22F28A3830E00B77CBC /* RecommendationsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendationsCollectionViewCell.xib; sourceTree = "<group>"; };
+		DEE0E23628A38AAE00B77CBC /* RecommendationsAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsAPIManager.swift; sourceTree = "<group>"; };
+		DEE0E23828A394BC00B77CBC /* SimilarAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarAPIManager.swift; sourceTree = "<group>"; };
 		DEF0D089289F984F00AD88CB /* CastAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastAPIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,6 +176,8 @@
 				DE6FD23E289E73510080B99D /* MovieAPIManager.swift */,
 				DE6FD243289E862A0080B99D /* GenreAPIManager.swift */,
 				DEF0D089289F984F00AD88CB /* CastAPIManager.swift */,
+				DEE0E23628A38AAE00B77CBC /* RecommendationsAPIManager.swift */,
+				DEE0E23828A394BC00B77CBC /* SimilarAPIManager.swift */,
 				DEDC8AA228A026CD0028E399 /* VideoAPIManager.swift */,
 			);
 			path = APIManager;
@@ -185,6 +201,11 @@
 				DE6FD23C289E34DF0080B99D /* CastTableViewCell.swift */,
 				DE1A7F8D289FFBE600882B70 /* CastOverviewTableViewCell.swift */,
 				DE1A7F8E289FFBE600882B70 /* CastOverviewTableViewCell.xib */,
+				DEE0E22628A3800800B77CBC /* RecommendationsTableViewCell.swift */,
+				DEE0E22E28A3830E00B77CBC /* RecommendationsCollectionViewCell.swift */,
+				DEE0E22F28A3830E00B77CBC /* RecommendationsCollectionViewCell.xib */,
+				DEE0E22A28A380B400B77CBC /* PosterView.swift */,
+				DEE0E22C28A380D000B77CBC /* PosterView.xib */,
 			);
 			path = Cast;
 			sourceTree = "<group>";
@@ -259,11 +280,13 @@
 			files = (
 				DE0C36D02899F7EB0041D6D1 /* .gitignore in Resources */,
 				DE1A7F90289FFBE600882B70 /* CastOverviewTableViewCell.xib in Resources */,
+				DEE0E22D28A380D000B77CBC /* PosterView.xib in Resources */,
 				DE0C36C82899F6C00041D6D1 /* LaunchScreen.storyboard in Resources */,
 				DE3AB246289BFBEC009396B3 /* SearchCollectionViewCell.xib in Resources */,
 				DE0C36C52899F6C00041D6D1 /* Assets.xcassets in Resources */,
 				DEA189DD28A2460A0010692F /* CardCollectionViewCell.xib in Resources */,
 				DE0C36C32899F6BD0041D6D1 /* Main.storyboard in Resources */,
+				DEE0E23128A3830E00B77CBC /* RecommendationsCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,10 +297,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEE0E23928A394BC00B77CBC /* SimilarAPIManager.swift in Sources */,
+				DEE0E23728A38AAE00B77CBC /* RecommendationsAPIManager.swift in Sources */,
+				DEE0E22828A3800800B77CBC /* RecommendationsTableViewCell.swift in Sources */,
 				DE8A33E9289CFC400062D5A7 /* SearchAPIManager.swift in Sources */,
 				DE0C36BC2899F6BD0041D6D1 /* AppDelegate.swift in Sources */,
 				DEF0D08A289F984F00AD88CB /* CastAPIManager.swift in Sources */,
 				DE1A7F8F289FFBE600882B70 /* CastOverviewTableViewCell.swift in Sources */,
+				DEE0E22B28A380B400B77CBC /* PosterView.swift in Sources */,
 				DE6FD23B289E30270080B99D /* CastTableViewController.swift in Sources */,
 				DE0C36D22899F86F0041D6D1 /* SearchViewController.swift in Sources */,
 				DEA189DC28A2460A0010692F /* CardCollectionViewCell.swift in Sources */,
@@ -289,6 +316,7 @@
 				DE3AB245289BFBEC009396B3 /* SearchCollectionViewCell.swift in Sources */,
 				DE6FD23F289E73510080B99D /* MovieAPIManager.swift in Sources */,
 				DE0C36D62899FA270041D6D1 /* Constant.swift in Sources */,
+				DEE0E23028A3830E00B77CBC /* RecommendationsCollectionViewCell.swift in Sources */,
 				DEDC8AA328A026CD0028E399 /* VideoAPIManager.swift in Sources */,
 				DE6FD242289E74120080B99D /* Movie.swift in Sources */,
 				DEDC8AA128A021EC0028E399 /* WebViewController.swift in Sources */,

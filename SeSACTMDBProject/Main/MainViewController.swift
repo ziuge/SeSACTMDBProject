@@ -16,12 +16,11 @@ class MainViewController: UIViewController {
         
         mainTableView.delegate = self
         mainTableView.dataSource = self
-        
     }
-    
 
 }
 
+// MARK: TableView
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 10
@@ -49,6 +48,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: CollectionView
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4

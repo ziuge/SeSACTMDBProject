@@ -18,6 +18,8 @@ class CastTableViewController: UIViewController {
     var movie: [String: String] = [:]
     var id: String = "0"
     var overview: String = "Overview here"
+    var recommend: [[String: String]] = []
+    var similar: [[String: String]] = []
     
     var isExpanded = false
 
@@ -37,25 +39,41 @@ class CastTableViewController: UIViewController {
         
         fetchCast(id: id)
         fetchMovie(id: id)
+        fetchRecommendations(id: id)
+        fetchSimilar(id: id)
     }
     
+    // MARK: Fetch Data
     func fetchCast(id: String) {
         CastAPIManager.shared.fetchData(id: id) { id, list in
             cast = list
-//            print("fetchCast called", cast[0])
             self.castTableView.reloadData()
         }
     }
-    
+
     func fetchMovie(id: String) {
         MovieAPIManager.shared.fetchMovieData(id: id) { list in
             self.movie = list[0]
-//            print("movie called", self.movie)
             self.overview = list[0]["overview"]!
             self.configure()
             self.castTableView.reloadData()
         }
     }
+    
+    func fetchRecommendations(id: String) {
+        RecommendationsAPIManager.shared.fetchData(id: id) { id, list in
+            self.recommend = list
+            self.castTableView.reloadData()
+        }
+    }
+    
+    func fetchSimilar(id: String) {
+        SimilarAPIManager.shared.fetchData(id: id) { id, list in
+            self.similar = list
+            self.castTableView.reloadData()
+        }
+    }
+    
     
     func configure() {
         let backURL = URL(string: EndPoint.tmdbPosterURL + movie["backdrop_path"]!)
@@ -71,33 +89,40 @@ class CastTableViewController: UIViewController {
     
 }
 
+// MARK: - TableView
 extension CastTableViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        } else {
+        if section == 1 {
             return cast.count
+        } else {
+            return 1
         }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 4
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 //        print("section", section)
         if section == 0 {
             return "OverView"
-        } else {
+        } else if section == 1 {
             return "Cast"
+        } else if section == 2 {
+            return "Recommendations"
+        } else {
+            return "Similar Movies"
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return UITableView.automaticDimension
-        } else {
+        } else if indexPath.section == 1 {
             return 86
+        } else {
+            return 200
         }
     }
     
@@ -108,9 +133,19 @@ extension CastTableViewController: UITableViewDelegate, UITableViewDataSource {
             cell.overviewLabel.numberOfLines = isExpanded ? 0 : 2
             
             return cell
-        } else {
+        } else if indexPath.section == 1 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CastTableViewCell", for: indexPath) as? CastTableViewCell else { return UITableViewCell() }
             cell.configureCell(index: indexPath.row)
+            
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "RecommendationsTableViewCell", for: indexPath) as? RecommendationsTableViewCell else { return UITableViewCell() }
+            
+            cell.recommendationsCollectionView.delegate = self
+            cell.recommendationsCollectionView.dataSource = self
+            cell.recommendationsCollectionView.tag = indexPath.section
+            cell.recommendationsCollectionView.register(UINib(nibName: "RecommendationsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "RecommendationsCollectionViewCell")
+            cell.recommendationsCollectionView.reloadData()
             
             return cell
         }
@@ -121,5 +156,31 @@ extension CastTableViewController: UITableViewDelegate, UITableViewDataSource {
             isExpanded = !isExpanded
             tableView.reloadData()
         }
+    }
+}
+
+// MARK: - CollectionView
+extension CastTableViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return section == 0 ? recommend.count : similar.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommendationsCollectionViewCell", for: indexPath) as? RecommendationsCollectionViewCell else { return UICollectionViewCell() }
+
+        if collectionView.tag == 2 {
+            guard let poster = recommend[indexPath.row]["poster_path"] else { return cell }
+            let url = URL(string: "\(EndPoint.tmdbPosterURL)\(poster)")
+            cell.posterView.posterImageView.kf.setImage(with: url)
+        } else {
+            guard let poster = similar[indexPath.row]["poster_path"] else { return cell }
+            let url = URL(string: "\(EndPoint.tmdbPosterURL)\(poster)")
+            cell.posterView.posterImageView.kf.setImage(with: url)
+        }
+        
+        cell.posterView.posterImageView.backgroundColor = .systemMint
+        cell.posterView.posterImageView.contentMode = .scaleAspectFill
+        
+        return cell
     }
 }

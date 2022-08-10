@@ -17,15 +17,10 @@ class CastTableViewCell: UITableViewCell {
         super.awakeFromNib()
 
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-    }
-
+    
     func configureCell(index: Int) {
         if cast.count > 0 {
-            print("cast not 0, configureCell Called")
+//            print("cast not 0, configureCell Called")
             let profile = cast[index]["profile"]!
             let url = URL(string: EndPoint.tmdbPosterURL + profile)
             castImageView.kf.setImage(with: url)
@@ -33,11 +28,9 @@ class CastTableViewCell: UITableViewCell {
             characterLabel.text = cast[index]["character"]!
             nameLabel.text = cast[index]["name"]!
         } else {
-            print("cast 0", cast)
+//            print("cast 0", cast)
         }
-        
-        
-        
+    
     }
     
 }
