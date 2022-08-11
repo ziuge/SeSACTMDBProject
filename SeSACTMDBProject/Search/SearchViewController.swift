@@ -23,7 +23,6 @@ class SearchViewController: UIViewController {
         collectionView.register(UINib(nibName: "SearchCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SearchCollectionViewCell")
         collectionView.prefetchDataSource = self
         collectionView.collectionViewLayout = collectionViewLayout()
-        collectionView.isPagingEnabled = true
         
         fetch()
     }
@@ -54,7 +53,7 @@ class SearchViewController: UIViewController {
         let spacing: CGFloat = 8
         let width = UIScreen.main.bounds.width - spacing
         layout.itemSize = CGSize(width: width, height: width)
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
         layout.minimumLineSpacing = spacing
         layout.minimumInteritemSpacing = spacing
@@ -79,7 +78,7 @@ extension SearchViewController: UICollectionViewDataSourcePrefetching {
     }
 }
 
-// MARK: CollectionView
+// MARK: - CollectionView
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return list.count
@@ -111,8 +110,6 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
             } else {
                 print("site", site)
             }
-            
-//            print("videoURL", videoURL)
         }
         
         cell.addActionHandler = {

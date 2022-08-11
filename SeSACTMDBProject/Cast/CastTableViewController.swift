@@ -178,7 +178,7 @@ extension CastTableViewController: UICollectionViewDelegate, UICollectionViewDat
             cell.posterView.posterImageView.kf.setImage(with: url)
         }
         
-        cell.posterView.posterImageView.backgroundColor = .systemMint
+//        cell.posterView.posterImageView.backgroundColor = .systemMint
         cell.posterView.posterImageView.contentMode = .scaleAspectFill
         
         return cell

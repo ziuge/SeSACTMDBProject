@@ -30,6 +30,7 @@
 		DE6FD242289E74120080B99D /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6FD241289E74120080B99D /* Movie.swift */; };
 		DE6FD244289E862A0080B99D /* GenreAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6FD243289E862A0080B99D /* GenreAPIManager.swift */; };
 		DE8A33E9289CFC400062D5A7 /* SearchAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8A33E8289CFC400062D5A7 /* SearchAPIManager.swift */; };
+		DEA0346528A3A743002633C3 /* TMDBAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA0346428A3A743002633C3 /* TMDBAPIManager.swift */; };
 		DEA189D928A244050010692F /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA189D828A244050010692F /* MainTableViewCell.swift */; };
 		DEA189DC28A2460A0010692F /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA189DA28A246090010692F /* CardCollectionViewCell.swift */; };
 		DEA189DD28A2460A0010692F /* CardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA189DB28A2460A0010692F /* CardCollectionViewCell.xib */; };
@@ -68,6 +69,7 @@
 		DE6FD241289E74120080B99D /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		DE6FD243289E862A0080B99D /* GenreAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreAPIManager.swift; sourceTree = "<group>"; };
 		DE8A33E8289CFC400062D5A7 /* SearchAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIManager.swift; sourceTree = "<group>"; };
+		DEA0346428A3A743002633C3 /* TMDBAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAPIManager.swift; sourceTree = "<group>"; };
 		DEA189D828A244050010692F /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		DEA189DA28A246090010692F /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DEA189DB28A2460A0010692F /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				DE0C36BB2899F6BD0041D6D1 /* AppDelegate.swift */,
 				DE0C36BD2899F6BD0041D6D1 /* SceneDelegate.swift */,
 				DE0C36C12899F6BD0041D6D1 /* Main.storyboard */,
+				DE5632F928A3A16C001FB597 /* View */,
 				DEA189DE28A246100010692F /* Main */,
 				DEDC8AA028A021EC0028E399 /* WebViewController.swift */,
 				DEDC8A9F28A021D90028E399 /* Cast */,
@@ -149,6 +152,15 @@
 			children = (
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		DE5632F928A3A16C001FB597 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DEE0E22A28A380B400B77CBC /* PosterView.swift */,
+				DEE0E22C28A380D000B77CBC /* PosterView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DE6FD240289E74090080B99D /* Model */ = {
@@ -179,6 +191,7 @@
 				DEE0E23628A38AAE00B77CBC /* RecommendationsAPIManager.swift */,
 				DEE0E23828A394BC00B77CBC /* SimilarAPIManager.swift */,
 				DEDC8AA228A026CD0028E399 /* VideoAPIManager.swift */,
+				DEA0346428A3A743002633C3 /* TMDBAPIManager.swift */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -204,8 +217,6 @@
 				DEE0E22628A3800800B77CBC /* RecommendationsTableViewCell.swift */,
 				DEE0E22E28A3830E00B77CBC /* RecommendationsCollectionViewCell.swift */,
 				DEE0E22F28A3830E00B77CBC /* RecommendationsCollectionViewCell.xib */,
-				DEE0E22A28A380B400B77CBC /* PosterView.swift */,
-				DEE0E22C28A380D000B77CBC /* PosterView.xib */,
 			);
 			path = Cast;
 			sourceTree = "<group>";
@@ -310,6 +321,7 @@
 				DEA189DC28A2460A0010692F /* CardCollectionViewCell.swift in Sources */,
 				DE0C36BE2899F6BD0041D6D1 /* SceneDelegate.swift in Sources */,
 				DE10F77228A2431C00E78677 /* MainViewController.swift in Sources */,
+				DEA0346528A3A743002633C3 /* TMDBAPIManager.swift in Sources */,
 				DE0C36D42899F88A0041D6D1 /* APIKey.swift in Sources */,
 				DE6FD244289E862A0080B99D /* GenreAPIManager.swift in Sources */,
 				DEA189D928A244050010692F /* MainTableViewCell.swift in Sources */,
@@ -467,6 +479,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DV7XBU83N5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSACTMDBProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -494,6 +507,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DV7XBU83N5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSACTMDBProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
