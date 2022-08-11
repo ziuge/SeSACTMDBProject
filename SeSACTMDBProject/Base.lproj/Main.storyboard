@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bwg-fN-GF5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1hW-tq-cTD">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -48,8 +48,19 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="g70-wi-fG9">
-                        <barButtonItem key="leftBarButtonItem" image="list.bullet" catalog="system" id="h4n-bP-Wt2"/>
-                        <barButtonItem key="rightBarButtonItem" image="magnifyingglass" catalog="system" id="ppr-by-bYo"/>
+                        <barButtonItem key="leftBarButtonItem" image="list.bullet" catalog="system" id="h4n-bP-Wt2">
+                            <connections>
+                                <action selector="listBtn:" destination="Lt6-if-Ykb" id="ljw-k8-BWo"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="magnifyingglass" catalog="system" id="ppr-by-bYo"/>
+                            <barButtonItem title="Item" image="map" catalog="system" id="3c2-MT-AAZ">
+                                <connections>
+                                    <action selector="mapBtn:" destination="Lt6-if-Ykb" id="aOQ-Ea-Ds5"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="jgM-SQ-neT" id="Ox6-T9-rKQ"/>
@@ -92,6 +103,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hd-EE-SI8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1751" y="717"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="5Nv-4g-KNv">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" id="8Jd-Yw-dET" customClass="MapViewController" customModule="SeSACTMDBProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PxO-EV-zAi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ZDf-ds-St9">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cFs-k0-ddD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cFs-k0-ddD" firstAttribute="trailing" secondItem="ZDf-ds-St9" secondAttribute="trailing" id="22v-d3-M42"/>
+                            <constraint firstItem="ZDf-ds-St9" firstAttribute="top" secondItem="cFs-k0-ddD" secondAttribute="top" id="Qlw-6H-M8H"/>
+                            <constraint firstItem="cFs-k0-ddD" firstAttribute="bottom" secondItem="ZDf-ds-St9" secondAttribute="bottom" id="Rv1-Ro-QPr"/>
+                            <constraint firstItem="ZDf-ds-St9" firstAttribute="leading" secondItem="cFs-k0-ddD" secondAttribute="leading" id="f6H-5S-dQx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="ZDf-ds-St9" id="UAs-s7-MhM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6ww-0K-6o8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3162" y="717"/>
         </scene>
         <!--Cast Table View Controller-->
         <scene sceneID="Z3f-Cp-8xZ">
@@ -262,7 +302,7 @@
         <!--Main View Controller-->
         <scene sceneID="yPS-QF-ng3">
             <objects>
-                <viewController id="Bwg-fN-GF5" customClass="MainViewController" customModule="SeSACTMDBProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="Bwg-fN-GF5" customClass="MainViewController" customModule="SeSACTMDBProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qlz-tJ-lBM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -366,6 +406,7 @@
     <resources>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="map" catalog="system" width="128" height="110"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

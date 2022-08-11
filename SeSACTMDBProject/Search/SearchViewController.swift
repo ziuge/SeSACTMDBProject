@@ -27,6 +27,20 @@ class SearchViewController: UIViewController {
         fetch()
     }
     
+    @IBAction func listBtn(_ sender: UIBarButtonItem) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func mapBtn(_ sender: UIBarButtonItem) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     var list: [[String: Any]] = []
     var id = ""
     
