@@ -47,6 +47,23 @@
 		DEF0D08A289F984F00AD88CB /* CastAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF0D089289F984F00AD88CB /* CastAPIManager.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DE5DE37C28AB74B9004081AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE5DE37728AB74B8004081AB /* SeSACFramework.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DE5DE35728AB73D4004081AB;
+			remoteInfo = SeSACFramework;
+		};
+		DE5DE37E28AB74B9004081AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE5DE37728AB74B8004081AB /* SeSACFramework.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DE5DE36128AB73D5004081AB;
+			remoteInfo = SeSACFrameworkTests;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		DE0C36B82899F6BD0041D6D1 /* SeSACTMDBProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACTMDBProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0C36BB2899F6BD0041D6D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +82,7 @@
 		DE1A7F8E289FFBE600882B70 /* CastOverviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastOverviewTableViewCell.xib; sourceTree = "<group>"; };
 		DE3AB243289BFBEC009396B3 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE3AB244289BFBEC009396B3 /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
+		DE5DE37728AB74B8004081AB /* SeSACFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SeSACFramework.xcodeproj; path = ../SeSACFramework/SeSACFramework.xcodeproj; sourceTree = "<group>"; };
 		DE6FD23A289E30270080B99D /* CastTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableViewController.swift; sourceTree = "<group>"; };
 		DE6FD23C289E34DF0080B99D /* CastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableViewCell.swift; sourceTree = "<group>"; };
 		DE6FD23E289E73510080B99D /* MovieAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPIManager.swift; sourceTree = "<group>"; };
@@ -104,6 +122,7 @@
 		DE0C36AF2899F6BD0041D6D1 = {
 			isa = PBXGroup;
 			children = (
+				DE5DE37728AB74B8004081AB /* SeSACFramework.xcodeproj */,
 				DE0C36CF2899F7EB0041D6D1 /* .gitignore */,
 				DE0C36BA2899F6BD0041D6D1 /* SeSACTMDBProject */,
 				DE0C36B92899F6BD0041D6D1 /* Products */,
@@ -164,6 +183,15 @@
 				DEE0E22C28A380D000B77CBC /* PosterView.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DE5DE37828AB74B8004081AB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DE5DE37D28AB74B9004081AB /* SeSACFramework.framework */,
+				DE5DE37F28AB74B9004081AB /* SeSACFrameworkTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		DE6FD240289E74090080B99D /* Model */ = {
@@ -280,12 +308,35 @@
 			);
 			productRefGroup = DE0C36B92899F6BD0041D6D1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DE5DE37828AB74B8004081AB /* Products */;
+					ProjectRef = DE5DE37728AB74B8004081AB /* SeSACFramework.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				DE0C36B72899F6BD0041D6D1 /* SeSACTMDBProject */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		DE5DE37D28AB74B9004081AB /* SeSACFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SeSACFramework.framework;
+			remoteRef = DE5DE37C28AB74B9004081AB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DE5DE37F28AB74B9004081AB /* SeSACFrameworkTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SeSACFrameworkTests.xctest;
+			remoteRef = DE5DE37E28AB74B9004081AB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DE0C36B62899F6BD0041D6D1 /* Resources */ = {
