@@ -42,7 +42,6 @@
 		DEA189D928A244050010692F /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA189D828A244050010692F /* MainTableViewCell.swift */; };
 		DEA189DC28A2460A0010692F /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA189DA28A246090010692F /* CardCollectionViewCell.swift */; };
 		DEA189DD28A2460A0010692F /* CardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA189DB28A2460A0010692F /* CardCollectionViewCell.xib */; };
-		DEC91F3728AB926C00830A1A /* NaviViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC91F3628AB926C00830A1A /* NaviViewController.swift */; };
 		DEDC8AA128A021EC0028E399 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC8AA028A021EC0028E399 /* WebViewController.swift */; };
 		DEDC8AA328A026CD0028E399 /* VideoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC8AA228A026CD0028E399 /* VideoAPIManager.swift */; };
 		DEE0E22828A3800800B77CBC /* RecommendationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE0E22628A3800800B77CBC /* RecommendationsTableViewCell.swift */; };
@@ -120,7 +119,6 @@
 		DEA189D828A244050010692F /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		DEA189DA28A246090010692F /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DEA189DB28A2460A0010692F /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
-		DEC91F3628AB926C00830A1A /* NaviViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviViewController.swift; sourceTree = "<group>"; };
 		DEDC8AA028A021EC0028E399 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		DEDC8AA228A026CD0028E399 /* VideoAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAPIManager.swift; sourceTree = "<group>"; };
 		DEE0E22628A3800800B77CBC /* RecommendationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsTableViewCell.swift; sourceTree = "<group>"; };
@@ -223,7 +221,6 @@
 			isa = PBXGroup;
 			children = (
 				DE0C36C12899F6BD0041D6D1 /* Main.storyboard */,
-				DEC91F3628AB926C00830A1A /* NaviViewController.swift */,
 				DE184ACD28A4EDED003C73D1 /* MapViewController.swift */,
 				DE5632F928A3A16C001FB597 /* View */,
 				DEA189DE28A246100010692F /* Main */,
@@ -450,7 +447,6 @@
 				DEE0E23028A3830E00B77CBC /* RecommendationsCollectionViewCell.swift in Sources */,
 				DEDC8AA328A026CD0028E399 /* VideoAPIManager.swift in Sources */,
 				DE6FD242289E74120080B99D /* Movie.swift in Sources */,
-				DEC91F3728AB926C00830A1A /* NaviViewController.swift in Sources */,
 				DEDC8AA128A021EC0028E399 /* WebViewController.swift in Sources */,
 				DE6FD23D289E34DF0080B99D /* CastTableViewCell.swift in Sources */,
 				DE5DE38828AB75D5004081AB /* FirstViewController.swift in Sources */,

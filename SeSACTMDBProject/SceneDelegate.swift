@@ -21,8 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if UserDefaults.standard.bool(forKey: "First") {
             let sb = UIStoryboard(name: "Main", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: SearchViewController.reuseIdentifier) as! SearchViewController
+            let nav = UINavigationController(rootViewController: vc)
             
-            window?.rootViewController = vc
+            window?.rootViewController = nav
         } else {
             let sb = UIStoryboard(name: "Intro", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: IntroPageViewController.reuseIdentifier) as! IntroPageViewController
