@@ -17,7 +17,7 @@ class SearchAPIManager {
     
     typealias completionHandler = (Int, [[String: Any]]) -> Void
     
-    func fetchData(startPage: Int, completionHandler: @escaping completionHandler) {
+    public func fetchData(startPage: Int, completionHandler: @escaping completionHandler) {
         let url = "https://api.themoviedb.org/3/trending/movie/week?api_key=\(APIKey.TMDB_SECRET)&page=\(startPage)"
         AF.request(url, method: .get).validate().responseData { response in
             switch response.result {
@@ -48,7 +48,7 @@ class SearchAPIManager {
     }
     
     // MARK: 날짜 형식 바꾸기
-    func changeDateFormat(date: String) -> String {
+    private func changeDateFormat(date: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         

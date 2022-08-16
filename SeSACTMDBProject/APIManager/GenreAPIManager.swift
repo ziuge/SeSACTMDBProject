@@ -17,7 +17,7 @@ class GenreAPIManager {
     
     typealias completionHandler = ([Int: String]) -> Void
     
-    func fetchData(completionHandler: @escaping completionHandler) {
+    public func fetchData(completionHandler: @escaping completionHandler) {
         let url = "\(EndPoint.genreURL)api_key=\(APIKey.TMDB_SECRET)&language=ko-KR"
         AF.request(url, method: .get).validate().responseData { response in
             switch response.result {

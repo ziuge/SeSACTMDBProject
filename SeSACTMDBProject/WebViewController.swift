@@ -21,7 +21,7 @@ class WebViewController: UIViewController {
         
     }
     
-    func openWebPage(url: String) {
+    public func openWebPage(url: String) {
         guard let url = URL(string: url) else {
             print("Invalid URL")
             return

@@ -18,7 +18,7 @@ class MainTableViewCell: UITableViewCell {
         setupUI()
     }
     
-    func setupUI() {
+    private func setupUI() {
         titleLabel.text = "#Genre"
 //        contentCollectionView.backgroundColor = .systemCyan
 //        contentCollectionView.collectionViewLayout = collectionViewLayout()

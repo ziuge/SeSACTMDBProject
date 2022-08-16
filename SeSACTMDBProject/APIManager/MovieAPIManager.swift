@@ -17,7 +17,7 @@ class MovieAPIManager {
     
     typealias completionHandler = ([[String: String]]) -> Void
     
-    func fetchMovieData(id: String, completionHandler: @escaping completionHandler) {
+    public func fetchMovieData(id: String, completionHandler: @escaping completionHandler) {
         let url = "https://api.themoviedb.org/3/movie/\(id)?api_key=\(APIKey.TMDB_SECRET)&language=en-US"
         AF.request(url, method: .get).validate().responseData { response in
             switch response.result {

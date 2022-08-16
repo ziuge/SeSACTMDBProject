@@ -33,12 +33,7 @@ class TMDBAPIManager {
     
     typealias completionHandler = (String, [String]) -> Void
     
-    let groupList = ["Popular", "Top Rated", "Now Playing", "Upcoming"]
-    let groupName = ["popular", "top_rated", "now_playing", "upcoming"]
-    var groups: [[String]] = []
-    
-    func callRequest(query: String, completionHandler: @escaping completionHandler ) {
-        print(#function)
+    public func callRequest(query: String, completionHandler: @escaping completionHandler ) {
         let url = "https://api.themoviedb.org/3/movie/\(query)?api_key=\(APIKey.TMDB_SECRET)&language=en-US&page=1"
         
         AF.request(url, method: .get).validate().responseData { response in
@@ -46,8 +41,6 @@ class TMDBAPIManager {
             case .success(let value):
                 let json = JSON(value)
 //                print( "JSON: \(json)")
-                
-                print("TMDB API Manager")
                 
                 var list: [String] = []
                 

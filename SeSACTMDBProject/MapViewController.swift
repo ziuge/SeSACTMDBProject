@@ -22,8 +22,8 @@ class MapViewController: UIViewController {
 
         locationManager.delegate = self
         
-        let center = CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270)
-        setRegionAndAnnotation(center: center)
+//        let center = CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270)
+//        setRegionAndAnnotation(center: center)
     }
     
     override func viewDidAppear(_ animated: Bool) {

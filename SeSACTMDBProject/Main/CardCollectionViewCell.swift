@@ -21,7 +21,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         
     }
 
-    func setupUI() {
+    private func setupUI() {
         posterView.posterImageView.layer.cornerRadius = 10
         posterView.posterImageView.layer.masksToBounds = true
     }
