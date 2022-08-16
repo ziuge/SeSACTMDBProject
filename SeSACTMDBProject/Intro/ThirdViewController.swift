@@ -17,7 +17,7 @@ class ThirdViewController: UIViewController {
     
     @IBAction func startBtnClicked(_ sender: UIButton) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: SearchViewController.reuseIdentifier) as! SearchViewController
+        let vc = sb.instantiateViewController(withIdentifier: NaviViewController.reuseIdentifier) as! NaviViewController
         
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate

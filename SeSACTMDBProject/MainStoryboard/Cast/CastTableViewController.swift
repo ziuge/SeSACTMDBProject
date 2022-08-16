@@ -55,7 +55,7 @@ class CastTableViewController: UIViewController {
         MovieAPIManager.shared.fetchMovieData(id: id) { list in
             self.movie = list[0]
             self.overview = list[0]["overview"]!
-//            self.configure()
+            self.configure()
             self.castTableView.reloadData()
         }
     }
