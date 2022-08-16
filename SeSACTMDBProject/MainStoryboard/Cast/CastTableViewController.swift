@@ -55,7 +55,7 @@ class CastTableViewController: UIViewController {
         MovieAPIManager.shared.fetchMovieData(id: id) { list in
             self.movie = list[0]
             self.overview = list[0]["overview"]!
-            self.configure()
+//            self.configure()
             self.castTableView.reloadData()
         }
     }
@@ -73,7 +73,6 @@ class CastTableViewController: UIViewController {
             self.castTableView.reloadData()
         }
     }
-    
     
     func configure() {
         let backURL = URL(string: EndPoint.tmdbPosterURL + movie["backdrop_path"]!)
@@ -104,7 +103,6 @@ extension CastTableViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        print("section", section)
         if section == 0 {
             return "OverView"
         } else if section == 1 {
