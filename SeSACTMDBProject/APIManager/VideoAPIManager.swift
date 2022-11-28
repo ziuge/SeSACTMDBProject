@@ -18,7 +18,7 @@ class VideoAPIManager {
     typealias completionHandler = (String, String, String) -> Void
     
     public func fetchData(id: String, completionHandler: @escaping completionHandler) {
-        let url = EndPoint.videoURL + id + "/videos?api_key=\(APIKey.TMDB_SECRET)&language=en-US"
+        let url = EndPoint.movieURL + id + "/videos?api_key=\(APIKey.TMDB_SECRET)&language=en-US"
         AF.request(url, method: .get).validate().responseData { response in
             switch response.result {
             case .success(let value):

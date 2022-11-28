@@ -30,7 +30,7 @@ class MainViewController: UIViewController {
 
     // MARK: Fetch Data
     func fetch(query: String) {
-        TMDBAPIManager.shared.callRequest(query: query) { query, list in
+        GroupsAPIManager.shared.callRequest(query: query) { query, list in
             self.groupList.append(list)
             self.mainTableView.reloadData()
         }

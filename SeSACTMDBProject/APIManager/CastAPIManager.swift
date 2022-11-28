@@ -18,7 +18,7 @@ class CastAPIManager {
     typealias completionHandler = (String, [[String: String]]) -> Void
     
     public func fetchData(id: String, completionHandler: @escaping completionHandler) {
-        let url = EndPoint.creditURL +  "\(id)/credits?api_key=\(APIKey.TMDB_SECRET)&language=en-US"
+        let url = EndPoint.movieURL +  "\(id)/credits?api_key=\(APIKey.TMDB_SECRET)&language=en-US"
         AF.request(url, method: .get).validate().responseData { response in
             switch response.result {
             case .success(let value):

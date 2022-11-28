@@ -18,7 +18,7 @@ class RecommendationsAPIManager {
     typealias completionHandler = (String, [[String: String]]) -> Void
     
     public func fetchData(id: String, completionHandler: @escaping completionHandler) {
-        let url = EndPoint.recommendationsURL + "\(id)/recommendations?api_key=\(APIKey.TMDB_SECRET)&language=en-US&page=1"
+        let url = EndPoint.movieURL + "\(id)/recommendations?api_key=\(APIKey.TMDB_SECRET)&language=en-US&page=1"
         AF.request(url, method: .get).validate().responseData { response in
             switch response.result {
             case .success(let value):

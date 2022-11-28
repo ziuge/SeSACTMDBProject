@@ -384,10 +384,10 @@
             </objects>
             <point key="canvasLocation" x="3505.7971014492755" y="26.785714285714285"/>
         </scene>
-        <!--Navi View Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="lwN-14-ims">
             <objects>
-                <navigationController storyboardIdentifier="NaviViewController" automaticallyAdjustsScrollViewInsets="NO" id="1hW-tq-cTD" customClass="NaviViewController" customModule="SeSACTMDBProject" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1hW-tq-cTD" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wo7-ia-k8N">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
