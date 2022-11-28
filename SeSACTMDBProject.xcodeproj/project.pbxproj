@@ -38,6 +38,8 @@
 		DE6FD242289E74120080B99D /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6FD241289E74120080B99D /* Movie.swift */; };
 		DE6FD244289E862A0080B99D /* GenreAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6FD243289E862A0080B99D /* GenreAPIManager.swift */; };
 		DE8A33E9289CFC400062D5A7 /* SearchAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8A33E8289CFC400062D5A7 /* SearchAPIManager.swift */; };
+		DE9207B1293455320077BA13 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9207B0293455320077BA13 /* StoreKit.framework */; };
+		DE9207B3293455890077BA13 /* InAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9207B2293455890077BA13 /* InAppViewController.swift */; };
 		DEA0346528A3A743002633C3 /* GroupsAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA0346428A3A743002633C3 /* GroupsAPIManager.swift */; };
 		DEA189D928A244050010692F /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA189D828A244050010692F /* MainTableViewCell.swift */; };
 		DEA189DC28A2460A0010692F /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA189DA28A246090010692F /* CardCollectionViewCell.swift */; };
@@ -116,6 +118,8 @@
 		DE6FD241289E74120080B99D /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		DE6FD243289E862A0080B99D /* GenreAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreAPIManager.swift; sourceTree = "<group>"; };
 		DE8A33E8289CFC400062D5A7 /* SearchAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIManager.swift; sourceTree = "<group>"; };
+		DE9207B0293455320077BA13 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		DE9207B2293455890077BA13 /* InAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppViewController.swift; sourceTree = "<group>"; };
 		DEA0346428A3A743002633C3 /* GroupsAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsAPIManager.swift; sourceTree = "<group>"; };
 		DEA189D828A244050010692F /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		DEA189DA28A246090010692F /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 			files = (
 				DE3AB24F289C0F66009396B3 /* Kingfisher in Frameworks */,
 				DE5DE38E28AB7BEC004081AB /* SeSACFramework.framework in Frameworks */,
+				DE9207B1293455320077BA13 /* StoreKit.framework in Frameworks */,
 				DE3AB249289C0374009396B3 /* SwiftyJSON in Frameworks */,
 				DE3AB24C289C03B2009396B3 /* Alamofire in Frameworks */,
 			);
@@ -223,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				DE0C36C12899F6BD0041D6D1 /* Main.storyboard */,
+				DE9207B2293455890077BA13 /* InAppViewController.swift */,
 				DE184ACD28A4EDED003C73D1 /* MapViewController.swift */,
 				DE5632F928A3A16C001FB597 /* View */,
 				DEA189DE28A246100010692F /* Main */,
@@ -248,6 +254,7 @@
 		DE5DE38D28AB7BEC004081AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DE9207B0293455320077BA13 /* StoreKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -434,6 +441,7 @@
 				DED10E8D28ACD16600D9CEAA /* TMDBAPIManager.swift in Sources */,
 				DE1A7F8F289FFBE600882B70 /* CastOverviewTableViewCell.swift in Sources */,
 				DEE0E22B28A380B400B77CBC /* PosterView.swift in Sources */,
+				DE9207B3293455890077BA13 /* InAppViewController.swift in Sources */,
 				DE6FD23B289E30270080B99D /* CastTableViewController.swift in Sources */,
 				DE0C36D22899F86F0041D6D1 /* SearchViewController.swift in Sources */,
 				DEA189DC28A2460A0010692F /* CardCollectionViewCell.swift in Sources */,
