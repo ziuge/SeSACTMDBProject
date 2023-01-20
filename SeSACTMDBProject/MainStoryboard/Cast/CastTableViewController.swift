@@ -75,6 +75,7 @@ class CastTableViewController: UIViewController {
     }
     
     func configure() {
+        print(movie)
         let backURL = URL(string: EndPoint.tmdbPosterURL + movie["backdrop_path"]!)
         backgroundImageView.kf.setImage(with: backURL)
         
@@ -85,7 +86,7 @@ class CastTableViewController: UIViewController {
         titleLabel.textColor = UIColor(.white)
         titleLabel.font = .boldSystemFont(ofSize: 18)
     }
-    
+
 }
 
 // MARK: - TableView
