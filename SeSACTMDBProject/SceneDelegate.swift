@@ -18,20 +18,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
-        if UserDefaults.standard.bool(forKey: "First") {
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = sb.instantiateViewController(withIdentifier: "InAppViewController") as! InAppViewController
-//        window?.rootViewController = vc
-            let vc = sb.instantiateViewController(withIdentifier: SearchViewController.reuseIdentifier) as! SearchViewController
-            let nav = UINavigationController(rootViewController: vc)
+//        if UserDefaults.standard.bool(forKey: "First") {
+//            let sb = UIStoryboard(name: "Main", bundle: nil)
+////        let vc = sb.instantiateViewController(withIdentifier: "InAppViewController") as! InAppViewController
+////        window?.rootViewController = vc
+//            let vc = sb.instantiateViewController(withIdentifier: SearchViewController.reuseIdentifier) as! SearchViewController
+//            let nav = UINavigationController(rootViewController: vc)
+//
+//            window?.rootViewController = nav
+//        } else {
+//            let sb = UIStoryboard(name: "Intro", bundle: nil)
+//            let vc = sb.instantiateViewController(withIdentifier: IntroPageViewController.reuseIdentifier) as! IntroPageViewController
+//
+//            window?.rootViewController = UINavigationController(rootViewController: vc)
+//        }
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: SearchViewController.reuseIdentifier) as! SearchViewController
+        let nav = UINavigationController(rootViewController: vc)
 
-            window?.rootViewController = nav
-        } else {
-            let sb = UIStoryboard(name: "Intro", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: IntroPageViewController.reuseIdentifier) as! IntroPageViewController
-
-            window?.rootViewController = UINavigationController(rootViewController: vc)
-        }
+        window?.rootViewController = nav
 
         window?.makeKeyAndVisible()
     }
